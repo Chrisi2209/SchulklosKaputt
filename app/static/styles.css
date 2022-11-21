@@ -68,3 +68,12 @@ h1 a {
     text-decoration-color: purple;
     color: green;
 }
+
+a {
+    text-decoration: underline;
+    color: gray;
+}
+
+form p {
+    text-align: center;
+}

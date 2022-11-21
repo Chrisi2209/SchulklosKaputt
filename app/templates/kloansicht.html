@@ -2,32 +2,37 @@
 
 <head>
     <title>Klodaten bearbeiten</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
 </head>
 
 <body>
-    <!--<img src="{{ url_for('static',filename='schoolmap.png') }}" alt="Karte der Schule" usemap="#schoolmap">-->
-    <img src="schoolmap.png" alt="Karte der Schule" usemap="#schoolmap">
-    
+    <h1>Aktuell gemeldete Klos</h1>
+    {% for kaputtes_klo in kaputte_klos %}
+    <a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a>
+    <br>
+    {% endfor %}
+    <hr>
+    <h2>Klo anmelden</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.gebäudenummer.label }}: {{ form.gebäudenummer(size=32) }}
+        </p>
+        <p>
+            {{ form.stocknummer.label }}: {{ form.stocknummer(size=32) }}
+        </p>
+        <p>
+            {{ form.zimmernummer.label }}: {{ form.zimmernummer(size=32) }}
+        </p>
+        <p>
+            {{ form.pissoir.label }}: {{ form.pissoir(size=32) }}
+        </p>
+        <p>
+            {{ form.klonummer.label }}: {{ form.klonummer(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
 
-    <map name="schoolmap">
-        <area shape="rect" coords="130,30,250,100" alt="Computer" href="/kloansicht/Bauhof">
-        <area shape="rect" coords="160,150,220,190" alt="Computer" href="/kloansicht/Betonlabor">
-        <area shape="rect" coords="222,110,270,200" alt="Computer" href="/kloansicht/Holzbearbeitung">
-        <area shape="rect" coords="280,70,300,150" alt="Computer" href="/kloansicht/Baustofflabor">
-        <area shape="rect" coords="160,205,280,325" alt="Computer" href="/kloansicht/Holzwerkstätten">
-        <area shape="rect" coords="200,330,280,385" alt="Computer" href="/kloansicht/Sporthalle">
-        <area shape="rect" coords="160,330,190,385" alt="Computer" href="/kloansicht/Magazin">
-        <area shape="rect" coords="160,390,280,430" alt="Computer" href="/kloansicht/Turnsaal7">
-        <area shape="rect" coords="95,385,145,430" alt="Computer" href="/kloansicht/Turnsaal6">
-        <area shape="rect" coords="115,470,145,520" alt="Computer" href="/kloansicht/Mädchenheim">
-        
-        <area shape="rect" coords="320,150,350,240" alt="Computer" href="/kloansicht/Holztechnik">
-        <area shape="rect" coords="310,280,340,390" alt="Computer" href="/kloansicht/Innenarchitektur">
-        <area shape="rect" coords="310,430,480,520" alt="Computer" href="/kloansicht/Hauptgebäude-links">
-        <area shape="rect" coords="480,430,650,520" alt="Computer" href="/kloansicht/Hauptgebäude-rechts">
-        <area shape="rect" coords="370,150,520,240" alt="Computer" href="/kloansicht/Werkstätten">
-        <area shape="rect" coords="170,150,250,260" alt="Computer" href="/kloansicht/Umwelttechnik">
-    </map>
+    </form>
 </body>
 
 </html>
