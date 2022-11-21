@@ -9,6 +9,20 @@ button {
     margin: 5px 20px;
 }
 
+/******* Navbar *********/
+
+.navbar {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: darkslategrey;
+    align-items: center;
+}
+
+.navitem {
+    padding: 5%;
+    font-size: 18px;
+}
+
 /******* Titles *********/
 .title {
     color: white;
@@ -29,16 +43,18 @@ button {
 }
 
 .boxed {
-    font-size: 100px;
-    padding: 5px;
-    border-radius: 15%;
-    border-style: double;
-    border-color: darkgoldenrod;
+    padding: 10px;
+    border-radius: 5%;
+    margin: 10%;
+    border-style: solid;
+    border-color: white;
 }
 
 #counter {
     text-align: center;
-    margin: 10px 38%;
+    font-size: 100px;
+    margin: 30px 38%;
+    border-color: goldenrod;
     background: gray;
     color: brown;
     text-shadow: 5px 5px 10px;
@@ -50,6 +66,10 @@ button {
     text-align: center;
 
     display: inline-flex;
+}
+
+#add-toilet {
+    text-align: center;
 }
 
 /****** buttons *********/
@@ -68,6 +88,11 @@ h1 a {
     text-decoration: underline;
     text-decoration-color: purple;
     color: green;
+}
+
+.klodisplay {
+    text-align: center;
+    font-size: 20px;
 }
 
 a {

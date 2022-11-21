@@ -1,50 +1,44 @@
-<html lang="de">
+{% extends "base.html" %}
 
-<head>
-    <title>Klodaten bearbeiten</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
-</head>
+{% block content %}
+<h1 class="title">Aktuell gemeldete Klos</h1>
+{% for kaputtes_klo in kaputte_klos %}
+<p class="klodisplay"><a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a></p>
+<br>
+{% endfor %}
+<hr>
+<h2 class="title">Klo anmelden</h2>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.gebäudenummer.label }}: {{ form.gebäudenummer(size=32) }}
+        {% for error in form.gebäudenummer.errors %}
+        <span class="error">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.stocknummer.label }}: {{ form.stocknummer(size=32) }}
+        {% for error in form.stocknummer.errors %}
+        <span class="error">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.zimmernummer.label }}: {{ form.zimmernummer(size=32) }}
+        {% for error in form.zimmernummer.errors %}
+        <span class="error">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.pissoir.label }}: {{ form.pissoir(size=32) }}
+    </p>
+    <p>
+        {{ form.klonummer.label }}: {{ form.klonummer(size=32) }}
+        {% for error in form.klonummer.errors %}
+        <span class="error">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
 
-<body>
-    <h1>Aktuell gemeldete Klos</h1>
-    {% for kaputtes_klo in kaputte_klos %}
-    <a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a>
-    <br>
-    {% endfor %}
-    <hr>
-    <h2>Klo anmelden</h2>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.gebäudenummer.label }}: {{ form.gebäudenummer(size=32) }}
-            {% for error in form.gebäudenummer.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.stocknummer.label }}: {{ form.stocknummer(size=32) }}
-            {% for error in form.stocknummer.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.zimmernummer.label }}: {{ form.zimmernummer(size=32) }}
-            {% for error in form.zimmernummer.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.pissoir.label }}: {{ form.pissoir(size=32) }}
-        </p>
-        <p>
-            {{ form.klonummer.label }}: {{ form.klonummer(size=32) }}
-            {% for error in form.klonummer.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
+</form>
 
-    </form>
-</body>
-
-</html>
+{% endblock %}

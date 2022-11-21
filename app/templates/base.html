@@ -1,0 +1,20 @@
+<html lang="de">
+
+<head>
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>HTL-Mödling kaputte klos</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <p><span class="navitem"><a href="{{ url_for('index') }}">Home</a>
+            </span><span class="navitem"><a href="{{ url_for('kloansicht') }}">Klodaten</a></span></p>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+
+</html>
