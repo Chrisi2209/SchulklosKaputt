@@ -2,7 +2,7 @@ from app import app
 from app.forms import NeuesKloForm, KloLöschenForm
 from flask import render_template, flash, redirect
  
-kaputte_klos = ["a"]
+kaputte_klos = []
 
 @app.route("/") 
 @app.route("/index") 
@@ -13,9 +13,9 @@ def index():
 def kloansicht():
     form = NeuesKloForm()
     if form.validate_on_submit():
-        composed_name = (f"{form.gebäudenummer.data:02d}{form.stocknummer.data:02d}{form.zimmernummer.data:02d}:{form.klonummer.data:02d}:Pissoir" 
+        composed_name = (f"{form.gebäudenummer.data:02d}{form.stocknummer.data:02d}{form.zimmernummer.data:02d}:Pissoir:{form.klonummer.data:02d}" 
                         if form.pissoir.data else 
-                         f"{form.gebäudenummer.data:02d}{form.stocknummer.data:02d}{form.zimmernummer.data:02d}:{form.klonummer.data:02d}:Klo")
+                         f"{form.gebäudenummer.data:02d}{form.stocknummer.data:02d}{form.zimmernummer.data:02d}:Klo:{form.klonummer.data:02d}")
         kaputte_klos.append(composed_name)
         return redirect('/index')
 
