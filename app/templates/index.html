@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>HTL Mödling - Kaputte Toiletten</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
+</head>
+
+<body>
+    <h1 class="title">Anzahl der kaputten Klos in der HTL Mödling</h1>
+    <p class="subtitle">Live Counter für die Anzahl<br>an kaputten Klos in der HTL Mödling</p>
+    <hr>
+    <p id="counter" class="boxed">100</p>
+    <table>
+        <td><button onclick="IncrementAnzahl()">Erhöhen</button></td>
+        <td><button onclick="DecreaseAnzahl()">Verkleinern</button></td>
+    </table>
+    <hr>
+    <h1 class="title"><a href="/kloansicht">Sie möchten ein kaputtes Klo hinzufügen oder ein repariertes Klo wieder
+            entfernen?</a></h2>
+</body>
+
+<script>
+    function IncrementAnzahl() {
+        var a = document.getElementById("counter");
+        a.innerHTML = Number(a.innerHTML) + 1;
+    }
+
+    function DecreaseAnzahl() {
+        var a = document.getElementById("counter");
+        if (Number(a.innerHTML) > 0) {
+            a.innerHTML = Number(a.innerHTML) - 1;
+        }
+    }
+</script>
+
+</html>

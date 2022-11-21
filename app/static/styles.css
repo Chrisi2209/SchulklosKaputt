@@ -1,0 +1,70 @@
+body {
+    background: black;
+    color: white;
+}
+
+button {
+    border-radius: 1%;
+    margin: 5px 20px;
+}
+
+/******* Titles *********/
+.title {
+    color: white;
+    text-align: center;
+    font-size: 50px
+}
+
+.subtitle {
+    color: white;
+    text-align: right;
+    font-size: 30px
+}
+
+/******** counter *******/
+.beschriftung {
+    font-size: 30px;
+    padding: 25px;
+}
+
+.boxed {
+    font-size: 100px;
+    padding: 5px;
+    border-radius: 15%;
+    border-style: double;
+    border-color: darkgoldenrod;
+}
+
+#counter {
+    text-align: center;
+    margin: 10px 38%;
+    background: gray;
+    color: brown;
+    text-shadow: 5px 5px 10px;
+    box-shadow: 5px 5px 10px
+}
+
+.side-by-side {
+    margin: 10px 25%;
+    text-align: center;
+
+    display: inline-flex;
+}
+
+/****** buttons *********/
+
+table {
+    margin: auto;
+}
+
+table tr td button {
+    color: green;
+}
+
+/******* Daten aktualisieren *********/
+
+h1 a {
+    text-decoration: underline;
+    text-decoration-color: purple;
+    color: green;
+}
