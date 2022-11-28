@@ -11,8 +11,10 @@
 
 <body>
     <div class="navbar">
-        <p><span class="navitem"><a href="{{ url_for('index') }}">Home</a>
-            </span><span class="navitem"><a href="{{ url_for('kloansicht') }}">Klodaten</a></span></p>
+        <p><span class="navitem"><a href="{{ url_for('index') }}">Home</a></span>
+            <span class="navitem"><a href="{{ url_for('kloansicht') }}">Klodaten</a></span>
+            <span class="navitem"><a href="{{ url_for('help') }}">Hilfe</a></span>
+        </p>
     </div>
     {% block content %}{% endblock %}
 </body>

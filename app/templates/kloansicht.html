@@ -9,36 +9,38 @@
 <hr>
 <h2 class="title">Klo anmelden</h2>
 <form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-        {{ form.gebäudenummer.label }}: {{ form.gebäudenummer(size=32) }}
-        {% for error in form.gebäudenummer.errors %}
-        <span class="error">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.stocknummer.label }}: {{ form.stocknummer(size=32) }}
-        {% for error in form.stocknummer.errors %}
-        <span class="error">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.zimmernummer.label }}: {{ form.zimmernummer(size=32) }}
-        {% for error in form.zimmernummer.errors %}
-        <span class="error">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.pissoir.label }}: {{ form.pissoir(size=32) }}
-    </p>
-    <p>
-        {{ form.klonummer.label }}: {{ form.klonummer(size=32) }}
-        {% for error in form.klonummer.errors %}
-        <span class="error">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <p>{{ form.submit() }}</p>
-
+    <div class="addToilet-form" id="addToiletForm">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.gebäudenummer.label }}<br>{{ form.gebäudenummer() }}
+            {% for error in form.gebäudenummer.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.stocknummer.label }}<br>{{ form.stocknummer() }}
+            {% for error in form.stocknummer.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.zimmernummer.label }}<br>{{ form.zimmernummer() }}
+            {% for error in form.zimmernummer.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.pissoir.label }}<br>{{ form.pissoir() }}
+        </p>
+        <p>
+            {{ form.klonummer.label }}<br>{{ form.klonummer() }}
+            {% for error in form.klonummer.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+        <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+    </div>
 </form>
 
 {% endblock %}

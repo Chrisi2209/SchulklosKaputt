@@ -33,3 +33,7 @@ def kloansicht_klo(klo):
         return render_template("klobearbeitung.html", title=f"HTL-Mödling {klo} bearbeiten", klo=klo, form=form)
     else:
         return redirect(url_for("kloansicht"))
+
+@app.route("/help")
+def help():
+    return render_template("help.html", title="HTL-Mödling kaputte Klos")

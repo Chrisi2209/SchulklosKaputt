@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">Anzahl der kaputten Klos in der HTL Mödling</h1>
-<p class="subtitle">Live Counter für die Anzahl<br>an kaputten Klos in der HTL Mödling</p>
+<h1 class="title">Anzahl der kaputten Häsl in der HTL Mödling</h1>
 
 <p id="counter" class="boxed">{{anzahl}}</p>
 
+<p class="subtitle">Live Counter für die Anzahl<br>an kaputten Klos in der HTL Mödling</p>
 
-<h2 class="boxed" id="add-toilet"><a href="{{ url_for('kloansicht') }}">Sie möchten ein kaputtes Klo hinzufügen
+<h2 class="boxed" id="add-toilet"><a href="{{ url_for('kloansicht') }}">Sie möchten ein kaputtes Klo
+        hinzufügen
         oder ein repariertes Klo
         wieder
         entfernen?</a></h2>
