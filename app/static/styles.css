@@ -9,6 +9,11 @@ button {
     margin: 5px 20px;
 }
 
+hr {
+    border-color: darkslategrey;
+    border-width: 3px;
+}
+
 /******* Navbar *********/
 
 .navbar {

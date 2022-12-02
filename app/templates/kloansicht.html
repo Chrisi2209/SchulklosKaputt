@@ -4,7 +4,6 @@
 <h1 class="title">Aktuell gemeldete Klos</h1>
 {% for kaputtes_klo in kaputte_klos %}
 <p class="klodisplay"><a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a></p>
-<br>
 {% endfor %}
 <hr>
 <h2 class="title">Klo anmelden</h2>
@@ -12,20 +11,20 @@
     <div class="addToilet-form" id="addToiletForm">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.gebäudenummer.label }}<br>{{ form.gebäudenummer() }}
-            {% for error in form.gebäudenummer.errors %}
+            {{ form.building.label }}<br>{{ form.building() }}
+            {% for error in form.building.errors %}
             <span class="error">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
-            {{ form.stocknummer.label }}<br>{{ form.stocknummer() }}
-            {% for error in form.stocknummer.errors %}
+            {{ form.floor.label }}<br>{{ form.floor() }}
+            {% for error in form.floor.errors %}
             <span class="error">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
-            {{ form.zimmernummer.label }}<br>{{ form.zimmernummer() }}
-            {% for error in form.zimmernummer.errors %}
+            {{ form.room.label }}<br>{{ form.room() }}
+            {% for error in form.room.errors %}
             <span class="error">[{{ error }}]</span>
             {% endfor %}
         </p>
@@ -33,8 +32,8 @@
             {{ form.pissoir.label }}<br>{{ form.pissoir() }}
         </p>
         <p>
-            {{ form.klonummer.label }}<br>{{ form.klonummer() }}
-            {% for error in form.klonummer.errors %}
+            {{ form.toilet.label }}<br>{{ form.toilet() }}
+            {% for error in form.toilet.errors %}
             <span class="error">[{{ error }}]</span>
             {% endfor %}
         </p>

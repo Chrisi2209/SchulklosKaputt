@@ -7,6 +7,7 @@
     <title>HTL-Mödling kaputte klos</title>
     {% endif %}
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,9 @@
             <span class="navitem"><a href="{{ url_for('help') }}">Hilfe</a></span>
         </p>
     </div>
+
     {% block content %}{% endblock %}
+
 </body>
 
 </html>
