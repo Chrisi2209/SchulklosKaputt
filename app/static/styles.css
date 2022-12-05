@@ -28,6 +28,21 @@ hr {
     font-size: 18px;
 }
 
+/******** Navigator *****/
+
+.navigator {
+    width: 500px;
+    margin: auto;
+}
+
+.navigator ol li {
+    list-style: upper-roman;
+}
+
+.navigator ol li p {
+    font-size: 24px;
+}
+
 /******* Titles *********/
 .title {
     color: white;
@@ -37,9 +52,9 @@ hr {
 
 .subtitle {
     color: white;
-    text-align: right;
+    text-align: center;
     font-size: 30px;
-    margin-right: 10px;
+    margin-right: 30px;
     margin-top: 40px;
 }
 
@@ -59,13 +74,14 @@ hr {
 
 #counter {
     text-align: center;
+    width: 200px;
     font-size: 100px;
-    margin: 30px 38%;
+    margin: auto;
+    padding: 10px;
     border-color: goldenrod;
-    /*background: gray;*/
     color: brown;
     text-shadow: 5px 5px 10px;
-    box-shadow: 5px 5px 10px
+    box-shadow: 5px 5px 10px;
 }
 
 .side-by-side {
@@ -144,7 +160,7 @@ form p span {
     border-style: solid;
     border-color: white;
     border-radius: 10px;
-    margin: 20px;
+    margin: 50px;
     padding: 10px
 }
 

@@ -2,7 +2,28 @@
 
 {% block content %}
 <h1 class="title">Hilfe</h1>
-<div class="help-paragraph">
+
+<div class="navigator">
+    <ol>
+        <li>
+            <p><a href="#WebsiteDescription">Zweck der Webseite</a></p>
+        </li>
+        <li>
+            <p><a href="#AddToilet">Kaputtes Klo hinzufügen</a></p>
+        </li>
+        <li>
+            <p><a href="#RemoveToilet">Repariertes Klo entfernen</a></p>
+        </li>
+        <li>
+            <p><a href="#DefinitionBrokenToilet">Definition kaputtes Klo</a></p>
+        </li>
+        <li>
+            <p><a href="#ToiletDisplayScheme">Darstellungsbeschreibung in Kloansicht</a></p>
+        </li>
+    </ol>
+</div>
+
+<div class="help-paragraph" id="WebsiteDescription">
     <h2>Was macht diese Webseite?</h2>
     <p>
         Diese Webseite zeigt an, wie viele Klos der HTL-Mödling aktuell kaputt sind.<br>
@@ -58,6 +79,25 @@
         Dort sehen Sie alle kaputten Klos aufgelistet. Um nun ein Klo zu entfernen, müssen Sie auf das Klo klicken.
         Daraufhin
         drücken Sie "Löschen". Das Klo wurde dadurch gelöscht.
+    </p>
+</div>
+
+<div class="help-paragraph" id="DefinitionBrokenToilet">
+    <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
+
+    <p>
+        Ein Klo gilt dann als kaputt, wenn es aktuell von niemanden verwendbar ist. Das heißt, dass es entweder
+        abgesperrt, überschwemmt, kaputt etc. ist.
+    </p>
+</div>
+
+<div class="help-paragraph" id="ToiletDisplayScheme">
+    <h2>Wie funktioniert die Darstellung in der Kloansicht?</h2>
+
+    <p>
+        Die Darstellung lautet wie folgt. Als Beispiel wird 120209:Sitzklo:02 Die ersten 6 Ziffern sind zur
+        Raumidentifizierung. Nach dem ersten Doppelpunkt folgt dann entweder Sitzklo oder Pissoir, je nachdem um welche
+        Kloart es sich handelt. Die letzten 2 Ziffern bilden die Klonummer.
     </p>
 </div>
 

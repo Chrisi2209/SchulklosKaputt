@@ -19,27 +19,40 @@ def refresh_index():
 def kloansicht():
     form = NeuesKloForm()
     if form.validate_on_submit():
+        # Klo hinzufügen
         db.session.add(Toilet(building=form.building.data, floor=form.floor.data, 
                               room=form.room.data, pissoir=form.pissoir.data, toilet=form.toilet.data))
         db.session.commit()
         return redirect(url_for("index"))
 
+    # Klos sortieren, um sie anschließend auszugeben
+    sorted_toilet_names = [toilet.__str__() for toilet in Toilet.query.all()]
+    sorted_toilet_names.sort()
     return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", 
-                           kaputte_klos=[toilet.__str__() for toilet in Toilet.query.all()], form=form)
+                           kaputte_klos=sorted_toilet_names, form=form)
 
 @app.route("/kloansicht/<klo>", methods=["GET", "POST"])
 def kloansicht_klo(klo):
     form = KloLöschenForm()
     if form.validate_on_submit():
-        flash(f'deleted: {klo}') 
-        kloDb = [i for i in Toilet.query.all() if i.__str__() == klo][0]
-        db.session.delete(kloDb)
+        # Get all toilets with this name
+        kloDb = [i for i in Toilet.query.all() if i.__str__() == klo]
+        print(kloDb)
+        if len(kloDb) == 0:  # if this toilet doesn't exist
+            flash("Fehlgeschlagen: Dieses Klo wurde bereits entfernt!")
+            return redirect(url_for("index"))
+
+        # delete toilet
+        db.session.delete(kloDb[0])
         db.session.commit()
+        flash(f'{klo} entfernt') 
         return redirect(url_for("index"))
 
+    # Safetycheck the toilet exists
     if klo in [toilet.__str__() for toilet in Toilet.query.all()]:
         return render_template("klobearbeitung.html", title=f"HTL-Mödling {klo} bearbeiten", klo=klo, form=form)
     else:
+        flash("Fehlgeschlagen: Dieses Klo existiert nicht")
         return redirect(url_for("kloansicht"))
 
 

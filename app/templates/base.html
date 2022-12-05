@@ -18,6 +18,12 @@
         </p>
     </div>
 
+    <div class="flash">
+        {% for flash in get_flashed_messages() %}
+        <p>{{flash}}</p>
+        {% endfor %}
+    </div>
+
     {% block content %}{% endblock %}
 
 </body>
