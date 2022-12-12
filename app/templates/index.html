@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
 <h1 class="title">Anzahl der kaputten Heisl in der HTL Mödling</h1>
 
 <p id="counter" class="boxed">{{anzahl}}</p>
@@ -8,7 +10,6 @@
 <p class="subtitle">Live Counter für die Anzahl<br>an kaputten Klos in der HTL Mödling</p>
 
 <h2 class="boxed" id="add-toilet"><a href="{{ url_for('kloansicht') }}">Sie möchten ein kaputtes Klo
-                hinzufügen oder ein repariertes Klo wieder entfernen?</a></h2>
+        hinzufügen oder ein repariertes Klo wieder entfernen?</a></h2>
 
-<script src="{{ url_for('static', filename='script_index.js') }}"></script>
 {% endblock %}

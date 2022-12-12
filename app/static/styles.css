@@ -17,15 +17,23 @@ hr {
 /******* Navbar *********/
 
 .navbar {
-    padding-top: 5px;
-    padding-bottom: 10px;
+    width: 100%;
+    padding: 0px;
     background-color: darkslategrey;
-    align-items: center;
 }
 
+button.navitem,
 .navitem {
-    padding: 5%;
+    padding: 10px 2.5%;
+    margin: 0px;
     font-size: 18px;
+    border-width: 0px;
+    background-color: darkslategray;
+}
+
+.navitem:hover {
+    background-color: darkcyan;
+    cursor: pointer;
 }
 
 /******** Navigator *****/
@@ -125,8 +133,15 @@ a {
 
 /******* forms ***************/
 form p,
-form a {
+form a,
+form ul {
     margin-left: 40%;
+    padding: 0px;
+}
+
+form ul li {
+    list-style: none;
+    width: 200px;
 }
 
 form p input {

@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!--
+<script>
+    function jump(h) {
+        var url = location.href;               //Save down the URL without hash.
+        location.href = h;                 //Go to the target element.
+        history.replaceState(null, null, url);   //Don't like hashes. Changing it back.
+    }
+
+    jump({{ anchor }});
+</script>
+-->
+
 <h1 class="title">Aktuell gemeldete Klos</h1>
 {% for kaputtes_klo in kaputte_klos %}
 <p class="klodisplay"><a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a></p>
@@ -25,6 +37,12 @@
         <p>
             {{ form.room.label }}<br>{{ form.room() }}
             {% for error in form.room.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        {{ form.gender() }}
+        <p>
+            {% for error in form.gender.errors %}
             <span class="error">[{{ error }}]</span>
             {% endfor %}
         </p>

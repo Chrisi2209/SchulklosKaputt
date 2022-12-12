@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
 
 <head>
@@ -12,10 +13,10 @@
 
 <body>
     <div class="navbar">
-        <p><span class="navitem"><a href="{{ url_for('index') }}">Home</a></span>
-            <span class="navitem"><a href="{{ url_for('kloansicht') }}">Klodaten</a></span>
-            <span class="navitem"><a href="{{ url_for('help') }}">Hilfe</a></span>
-        </p>
+        <a href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
+        <a href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
+        <a href="{{ url_for('help') }}"><button class="navitem">Hilfe</button></a>
+
     </div>
 
     <div class="flash">
