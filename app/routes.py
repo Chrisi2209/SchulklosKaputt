@@ -24,7 +24,7 @@ def refresh_index():
     logger.info("GET " + url_for("refresh_index"))
     return jsonify(counter=len(Toilet.query.all()))
 
-@app.route("/kloansicht", methods=["GET", "POST"])
+@app.route("/kloansicht", methods=["GET"])
 def kloansicht():
     # Klos sortieren, um sie fallweise auszugeben
     sorted_girl_toilet_names = [toilet.__str__() for toilet in Toilet.query.filter_by(gender=True).all()]
@@ -65,7 +65,7 @@ def kloansicht_klo(klo):
         return redirect(url_for("kloansicht"))
 
 
-@app.route("/klo-anmelden")
+@app.route("/klo-anmelden", methods=["GET", "POST"])
 def klo_anmelden():
     form = NeuesKloForm()
     if form.is_submitted():
