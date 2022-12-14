@@ -24,7 +24,9 @@ hr {
 
 button.navitem,
 .navitem {
-    padding: 10px 2.5%;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 0px;
     font-size: 18px;
     border-width: 0px;
@@ -53,18 +55,34 @@ button.navitem,
 
 /******* Titles *********/
 .title {
-    color: white;
     text-align: center;
-    font-size: 50px
+    font-size: 50px;
 }
 
 .subtitle {
-    color: white;
     text-align: center;
     font-size: 30px;
     margin-right: 30px;
     margin-top: 40px;
 }
+
+/******** column ********/
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.row::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.column50 {
+    width: 50%;
+}
+
+
 
 /******** counter *******/
 .beschriftung {
@@ -75,7 +93,8 @@ button.navitem,
 .boxed {
     padding: 10px;
     border-radius: 5px;
-    margin: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     border-style: solid;
     border-color: white;
 }
@@ -103,17 +122,7 @@ button.navitem,
     text-align: center;
 }
 
-/****** buttons *********/
-
-table {
-    margin: auto;
-}
-
-table tr td button {
-    color: green;
-}
-
-/******* Daten aktualisieren *********/
+/******* Daten anzeigen *********/
 
 h1 a {
     text-decoration: underline;
@@ -129,6 +138,29 @@ h1 a {
 a {
     text-decoration: underline;
     color: gray;
+}
+
+span[data-descr] {
+    position: relative;
+    text-decoration: underline;
+    color: #00f;
+    cursor: help;
+}
+
+span[data-descr]:hover::after,
+span[data-descr]:focus::after {
+    content: attr(data-descr);
+    position: absolute;
+    left: 0;
+    top: 24px;
+    min-width: 200px;
+    border: 1px #aaaaaa solid;
+    border-radius: 10px;
+    background-color: #ffffcc;
+    padding: 12px;
+    color: #000000;
+    font-size: 14px;
+    z-index: 1;
 }
 
 /******* forms ***************/
@@ -174,9 +206,11 @@ form p span {
 .help-paragraph {
     border-style: solid;
     border-color: white;
+    background-color: #333333;
+    box-shadow: 5px 10px #1a1a1a;
     border-radius: 10px;
     margin: 50px;
-    padding: 10px
+    padding: 10px;
 }
 
 div.help-paragraph h2 {

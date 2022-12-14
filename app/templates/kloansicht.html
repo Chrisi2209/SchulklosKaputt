@@ -1,63 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!--
-<script>
-    function jump(h) {
-        var url = location.href;               //Save down the URL without hash.
-        location.href = h;                 //Go to the target element.
-        history.replaceState(null, null, url);   //Don't like hashes. Changing it back.
-    }
-
-    jump({{ anchor }});
-</script>
--->
 
 <h1 class="title">Aktuell gemeldete Klos</h1>
-{% for kaputtes_klo in kaputte_klos %}
-<p class="klodisplay"><a href="kloansicht/{{kaputtes_klo}}">{{kaputtes_klo}}</a></p>
-{% endfor %}
-<hr>
-<h2 class="title">Klo anmelden</h2>
-<form action="" method="post" novalidate>
-    <div class="addToilet-form" id="addToiletForm">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.building.label }}<br>{{ form.building() }}
-            {% for error in form.building.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.floor.label }}<br>{{ form.floor() }}
-            {% for error in form.floor.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.room.label }}<br>{{ form.room() }}
-            {% for error in form.room.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        {{ form.gender() }}
-        <p>
-            {% for error in form.gender.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.pissoir.label }}<br>{{ form.pissoir() }}
-        </p>
-        <p>
-            {{ form.toilet.label }}<br>{{ form.toilet() }}
-            {% for error in form.toilet.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-        <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+<div class="row">
+    <div class="column50">
+        <h1 class="subtitle">Knaben</h1>
+        {% for broken_boy_toilet in broken_boy_toilets %}
+        <p class="klodisplay"><span data-descr="klicken zum löschen"><a
+                    href="kloansicht/{{broken_boy_toilet}}">{{broken_boy_toilet}}</a></span></p>
+        {% endfor %}
     </div>
-</form>
+
+    <div class="column50">
+        <h1 class="subtitle">Mädchen</h1>
+        {% for broken_girl_toilet in broken_girl_toilets %}
+        <p class="klodisplay"><span data-descr="löschen"><a
+                    href="kloansicht/{{broken_girl_toilet}}">{{broken_girl_toilet}}</a></span></p>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

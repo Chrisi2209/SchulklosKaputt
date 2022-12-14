@@ -27,30 +27,14 @@ def refresh_index():
 @app.route("/kloansicht", methods=["GET", "POST"])
 def kloansicht():
     # Klos sortieren, um sie fallweise auszugeben
-    sorted_toilet_names = [toilet.__str__() for toilet in Toilet.query.all()]
-    sorted_toilet_names.sort()
-
-    form = NeuesKloForm()
-    if form.is_submitted():
-        if not form.validate():
-            logger.info("POST " + url_for("kloansicht") + " provided data declined")
-            return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", 
-                        kaputte_klos=sorted_toilet_names, form=form, anchor="#addToiletForm")
-        
-        gender = True if form.gender.data == "female" else False
-        # Klo hinzufügen
-        added_toilet = Toilet(building=form.building.data, floor=form.floor.data, 
-                            room=form.room.data, gender=gender, pissoir=form.pissoir.data, toilet=form.toilet.data)
-        db.session.add(added_toilet)
-        db.session.commit()
-        
-        logger.info("POST " + url_for("kloansicht") + " added: <" + added_toilet.__str__() + ">")
-        flash("Klo erfolgreich hinzugefügt")
-        return redirect(url_for("index"))
+    sorted_girl_toilet_names = [toilet.__str__() for toilet in Toilet.query.filter_by(gender=True).all()]
+    sorted_girl_toilet_names.sort()
+    sorted_boy_toilet_names = [toilet.__str__() for toilet in Toilet.query.filter_by(gender=False).all()]
+    sorted_boy_toilet_names.sort()
 
     logger.info("GET " + url_for("kloansicht"))
-    return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", 
-                           kaputte_klos=sorted_toilet_names, form=form, anchor="")
+    return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", broken_girl_toilets=sorted_girl_toilet_names,
+                           broken_boy_toilets=sorted_boy_toilet_names)
 
 
 @app.route("/kloansicht/<klo>", methods=["GET", "POST"])
@@ -80,6 +64,32 @@ def kloansicht_klo(klo):
         flash("Fehlgeschlagen: Dieses Klo existiert nicht")
         return redirect(url_for("kloansicht"))
 
+
+@app.route("/klo-anmelden")
+def klo_anmelden():
+    form = NeuesKloForm()
+    if form.is_submitted():
+        # didnt pass validation
+        if not form.validate():
+            logger.info("POST " + url_for("kloansicht") + " provided data declined")
+            return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", form=form)
+        
+        gender = True if form.gender.data == "female" else False
+        # no pissoir in female toilets
+        if gender == True and form.pissoir.data == True:
+            return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", form=form)
+
+        # add toilet
+        added_toilet = Toilet(building=form.building.data, floor=form.floor.data, 
+                            room=form.room.data, gender=gender, pissoir=form.pissoir.data, toilet=form.toilet.data)
+        db.session.add(added_toilet)
+        db.session.commit()
+        
+        logger.info("POST " + url_for("kloansicht") + " added: <" + added_toilet.__str__() + ">")
+        flash("Klo erfolgreich hinzugefügt")
+        return redirect(url_for("index"))
+
+    return render_template("klo_anmelden.html", title="kaputtes Klo anmelden", form=form)
 
 @app.route("/help")
 def help():

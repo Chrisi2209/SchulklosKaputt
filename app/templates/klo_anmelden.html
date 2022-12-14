@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="title">Klo anmelden</h2>
+<form action="" method="post" novalidate>
+    <div class="addToilet-form" id="addToiletForm">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.building.label }}<br>{{ form.building() }}
+            {% for error in form.building.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.floor.label }}<br>{{ form.floor() }}
+            {% for error in form.floor.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.room.label }}<br>{{ form.room() }}
+            {% for error in form.room.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        {{ form.gender() }}
+        <p>
+            {% for error in form.gender.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.pissoir.label }}<br>{{ form.pissoir() }}
+        </p>
+        <p>
+            {{ form.toilet.label }}<br>{{ form.toilet() }}
+            {% for error in form.toilet.errors %}
+            <span class="error">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+        <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+    </div>
+</form>
+{% endblock %}
