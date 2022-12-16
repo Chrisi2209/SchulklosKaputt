@@ -13,11 +13,10 @@
 
 <body>
     <div class="navbar">
-        <a href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
-        <a href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
-        <a href="{{ url_for('klo_anmelden') }}"><button class="navitem">Klo melden</button></a>
-        <a href="{{ url_for('help') }}"><button class="navitem">Hilfe</button></a>
-
+        <a id="navitem1" href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
+        <a id="navitem2" href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
+        <a id="navitem3" href="{{ url_for('klo_anmelden') }}"><button class="navitem">Klo melden</button></a>
+        <a id="navitem4" href="{{ url_for('help') }}"><button class="navitem">Hilfe</button></a>
     </div>
 
     <div class="flash">

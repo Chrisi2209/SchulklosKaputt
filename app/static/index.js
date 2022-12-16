@@ -7,4 +7,4 @@ function fetchdata() {
     })
 }
 
-setInterval(fetchdata, 2000);
+setInterval(fetchdata, 10000);

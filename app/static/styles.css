@@ -17,17 +17,29 @@ hr {
 /******* Navbar *********/
 
 .navbar {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
     padding: 0px;
     background-color: darkslategrey;
+    margin: 0;
+}
+
+.navbar a {
+    flex-basis: auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0;
 }
 
 button.navitem,
 .navitem {
-    width: 200px;
+    margin: 0;
+    flex-grow: 1;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin: 0px;
     font-size: 18px;
     border-width: 0px;
     background-color: darkslategray;
@@ -36,6 +48,14 @@ button.navitem,
 .navitem:hover {
     background-color: darkcyan;
     cursor: pointer;
+}
+
+/******** Flash messages ****/
+
+.flash {
+    position: absolute;
+    color: darkcyan;
+    margin-left: 10px;
 }
 
 /******** Navigator *****/
@@ -140,7 +160,6 @@ span[data-descr] {
     position: relative;
     text-decoration: underline;
     color: #00f;
-    cursor: help;
 }
 
 span[data-descr]:hover::after,
@@ -153,7 +172,7 @@ span[data-descr]:focus::after {
     border: 1px #aaaaaa solid;
     border-radius: 10px;
     background-color: #ffffcc;
-    padding: 12px;
+    padding: 5px;
     color: #000000;
     font-size: 14px;
     z-index: 1;
