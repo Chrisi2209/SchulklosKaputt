@@ -17,7 +17,10 @@ def log_get_request(func):
 @app.route("/index") 
 def index(): 
     logger.info("GET " + url_for("index"))
-    return render_template("index.html", title="HTL-Mödling kaputte klos", anzahl=len(Toilet.query.all()))
+    return render_template("index.html", title="HTL-Mödling kaputte klos", anzahl=len(Toilet.query.all()), 
+                           number100_val=len(Toilet.query.all()) // 100,
+                           number10_val=len(Toilet.query.all()) % 100 // 10,
+                           number1_val=len(Toilet.query.all()) % 100 % 10)
 
 @app.route("/index/refresh-counter")
 def refresh_index():

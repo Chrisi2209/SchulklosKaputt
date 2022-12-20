@@ -119,18 +119,6 @@ button.navitem,
     border-color: white;
 }
 
-#counter {
-    text-align: center;
-    width: 200px;
-    font-size: 100px;
-    margin: auto;
-    padding: 10px;
-    border-color: goldenrod;
-    color: brown;
-    text-shadow: 5px 5px 10px;
-    box-shadow: 5px 5px 10px;
-}
-
 .side-by-side {
     margin: 10px 25%;
     text-align: center;
@@ -235,4 +223,192 @@ div.help-paragraph h2 {
 
 div.help-paragraph p {
     font-size: 24px;
+}
+
+/***************** Counter *******************/
+
+:root {
+    --successorRotation: 50deg;
+    --predecessorRotation: -50deg;
+    --negativePredecessorRotation: 50deg;
+}
+
+#counter {
+    margin: auto;
+    width: max-content;
+}
+
+#backgroundgiver {
+    background-image:
+        linear-gradient(black, #e4e4e4, black);
+}
+
+.threeNumberContainer {
+    margin: 10px;
+    height: 65px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    gap: 20px;
+    color: darkslategray;
+}
+
+.counter-number {
+    font-size: 64px;
+}
+
+
+#cloneSuccessor {
+    opacity: 0;
+}
+
+#successor {
+    transform: rotate3d(1, 0, 0, var(--successorRotation));
+}
+
+#number {
+    transform: rotate3d(1, 0, 0, var(--numberRotation));
+    font-weight: bold;
+}
+
+#predecessor {
+    transform: rotate3d(1, 0, 0, var(--predecessorRotation));
+}
+
+#clonePredecessor {
+    opacity: 0;
+}
+
+
+/* INCREASE ANIMATION */
+
+.successorIncrease {
+    animation: increaseSuccessor 1s;
+}
+
+.numberIncrease {
+    animation: increaseNumber 1s;
+}
+
+.predecessorIncrease {
+    animation: increasePredecessor 1s;
+}
+
+.clonePredecessorIncrease {
+    animation: increaseClonePredecessor 1s;
+}
+
+@keyframes increaseSuccessor {
+    from {
+        opacity: 0%;
+        transform: translateY(-40px) rotate3d(1, 0, 0, 70deg);
+    }
+
+    to {
+        opacity: 100%;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+}
+
+@keyframes increaseNumber {
+    from {
+        font-weight: normal;
+        transform: translateY(-70px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+
+    to {
+        font-weight: bold;
+        transform: translateY(0px) rotate3d(1, 0, 0, 0deg);
+    }
+}
+
+@keyframes increasePredecessor {
+    from {
+        font-weight: bold;
+        transform: translateY(-70px) rotate3d(1, 0, 0, 0deg);
+    }
+
+    to {
+        font-weight: normal;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+}
+
+@keyframes increaseClonePredecessor {
+    from {
+        opacity: 100%;
+        transform: TranslateY(-70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        opacity: 0%;
+        transform: TranslateY(-30px) rotate3d(1, 0, 0, -70deg);
+    }
+}
+
+
+/* DECREASE ANIMATION */
+
+.successorDecrease {
+    animation: decreaseSuccessor 1s;
+}
+
+.numberDecrease {
+    animation: decreaseNumber 1s;
+}
+
+.predecessorDecrease {
+    animation: decreasePredecessor 1s;
+}
+
+.cloneSuccessorDecrease {
+    animation: decreaseCloneSuccessor 1s;
+}
+
+@keyframes decreaseCloneSuccessor {
+    from {
+        opacity: 100%;
+        transform: TranslateY(70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        opacity: 0%;
+        transform: TranslateY(40px) rotate3d(1, 0, 0, -70deg);
+    }
+}
+
+@keyframes decreaseSuccessor {
+    from {
+        transform: translateY(70px) rotate3d(1, 0, 0, 0deg);
+    }
+
+    to {
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+}
+
+@keyframes decreaseNumber {
+    from {
+        font-weight: normal;
+        transform: translateY(70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        font-weight: bold;
+        transform: translateY(0px) rotate3d(1, 0, 0, 0deg);
+    }
+}
+
+@keyframes decreasePredecessor {
+    from {
+        opacity: 0;
+        transform: translateY(40px) rotate3d(1, 0, 0, 75deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--negativePredecessorRotation));
+    }
 }
