@@ -69,7 +69,7 @@ function setCounter(toNumber) {
     successor1.innerHTML = Math.floor((toNumber + 1) % 100 % 10);
 }
 
-setInterval(fetchdata, 1000);
+setInterval(fetchdata, 4000);
 
 /***** Counter animation ******/
 

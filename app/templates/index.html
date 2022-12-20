@@ -2,7 +2,11 @@
 
 {% block content %}
 
-<h1 class="title">Anzahl der kaputten Heisl in der HTL Mödling</h1>
+<div id="login">
+    <a href="/login"><button class="transitionButton">Login</button></a>
+</div>
+
+<h1 class="title">Live counter für die Anzahl an kaputten Heisl in der HTL Mödling</h1>
 
 <div id="counter">
     <div class="threeNumberContainer" id="cloneSuccessor">
@@ -35,9 +39,6 @@
         <div class="counter-number" id="clonePredecessor1"></div>
     </div>
 </div>
-
-<p class="subtitle">Live Counter für die Anzahl<br>an kaputten Klos in der HTL Mödling</p>
-
 
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 

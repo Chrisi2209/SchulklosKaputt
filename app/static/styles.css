@@ -58,7 +58,44 @@ button.navitem,
     margin-left: 10px;
 }
 
-/******** Navigator *****/
+/******* Login button *******/
+#login {
+    margin-left: auto;
+    top: 20px;
+    right: 10px;
+
+    width: max-content;
+    height: max-content;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.transitionButton {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+    text-decoration: underline;
+
+    color: white;
+    background-color: darkslategray;
+
+    border-width: 5px;
+    border-color: white;
+    border-radius: 10px;
+
+    transition: color 0.5s;
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.transitionButton:hover {
+    cursor: pointer;
+    color: darkslategray;
+    background-color: white;
+    border-color: darkslategray;
+}
+
+/******** Navigator (e.g. help page) *****/
 
 .navigator {
     width: 500px;
