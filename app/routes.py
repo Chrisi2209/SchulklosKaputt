@@ -96,3 +96,10 @@ def klo_anmelden():
 def help():
     logger.info("GET " + url_for("help"))
     return render_template("help.html", title="HTL-Mödling kaputte Klos")
+
+
+####### API
+@app.route("/API/get-counter")
+def api_get_counter():
+    return jsonify(counter = len(Toilet.query.all()))
+
