@@ -34,13 +34,27 @@ var number_should = parseInt(number100.innerHTML) * 100 +
     parseInt(number10.innerHTML) * 10 +
     parseInt(number1.innerHTML);
 
-predecessor100.innerHTML = Math.floor((number_should - 1) / 100);
-predecessor10.innerHTML = Math.floor((number_should - 1) % 100 / 10);
-predecessor1.innerHTML = Math.floor((number_should - 1) % 100 % 10);
+if (number_should != 0) {
+    predecessor100.innerHTML = Math.floor((number_should - 1) / 100);
+    predecessor10.innerHTML = Math.floor((number_should - 1) % 100 / 10);
+    predecessor1.innerHTML = Math.floor((number_should - 1) % 100 % 10);
+}
+else {
+    predecessor100.innerHTML = "";
+    predecessor10.innerHTML = "";
+    predecessor1.innerHTML = "";
+}
 
-successor100.innerHTML = Math.floor((number_should + 1) / 100);
-successor10.innerHTML = Math.floor((number_should + 1) % 100 / 10);
-successor1.innerHTML = Math.floor((number_should + 1) % 100 % 10);
+if (number_should != 999) {
+    successor100.innerHTML = Math.floor((number_should + 1) / 100);
+    successor10.innerHTML = Math.floor((number_should + 1) % 100 / 10);
+    successor1.innerHTML = Math.floor((number_should + 1) % 100 % 10);
+}
+else {
+    successor100.innerHTML = "";
+    successor10.innerHTML = "";
+    successor1.innerHTML = "";
+}
 
 /******** get data for counter *********/
 

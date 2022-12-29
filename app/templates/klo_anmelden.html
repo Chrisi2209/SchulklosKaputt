@@ -4,42 +4,52 @@
 <h2 class="title">Klo anmelden</h2>
 <form action="" method="post" novalidate>
     <div class="addToilet-form" id="addToiletForm">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.building.label }}<br>{{ form.building() }}
-            {% for error in form.building.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.floor.label }}<br>{{ form.floor() }}
-            {% for error in form.floor.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.room.label }}<br>{{ form.room() }}
-            {% for error in form.room.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        {{ form.gender() }}
-        <p>
-            {% for error in form.gender.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.pissoir.label }}<br>{{ form.pissoir() }}
-        </p>
-        <p>
-            {{ form.toilet.label }}<br>{{ form.toilet() }}
-            {% for error in form.toilet.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-        <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+        <div class="two-column-section-background">
+            <div class="two-column-section">
+                <div class="two-column-section-column">
+                    {{ form.hidden_tag() }}
+                    <div>
+                        {{ form.building.label }}<br>{{ form.building() }}
+                        {% for error in form.building.errors %}
+                        <span class="error">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <div>
+
+                        {{ form.floor.label }}<br>{{ form.floor() }}
+                        {% for error in form.floor.errors %}
+                        <span class="error">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {{ form.room.label }}<br>{{ form.room() }}
+                        {% for error in form.room.errors %}
+                        <span class="error">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="two-column-section-column">
+                    {{ form.gender() }}
+                    <div>
+                        {% for error in form.gender.errors %}
+                        <span class="error">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {{ form.pissoir.label }}<br>{{ form.pissoir() }}
+                    </div>
+                    <div>
+                        {{ form.toilet.label }}<br>{{ form.toilet() }}
+                        {% for error in form.toilet.errors %}
+                        <span class="error">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+            <p>{{ form.submit() }}</p>
+            <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+        </div>
     </div>
 </form>
 {% endblock %}
