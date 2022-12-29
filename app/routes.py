@@ -3,6 +3,7 @@ from app.models import Toilet
 from app.forms import NeuesKloForm, KloLöschenForm
 from flask import render_template, flash, redirect, url_for, jsonify
 
+
 # Decorator to log request to this function as get request
 def log_get_request(func):
     def wrapper():
@@ -12,12 +13,19 @@ def log_get_request(func):
 
     return wrapper
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("error.html")
 
 @app.route("/") 
 @app.route("/index") 
+@app.route("/home") 
 def index(): 
     logger.info("GET " + url_for("index"))
-    return render_template("index.html", title="HTL-Mödling kaputte klos", anzahl=len(Toilet.query.all()))
+    return render_template("index.html", title="HTL-Mödling kaputte klos", authenticated=False, anzahl=len(Toilet.query.all()), 
+                           number100_val=len(Toilet.query.all()) // 100,
+                           number10_val=len(Toilet.query.all()) % 100 // 10,
+                           number1_val=len(Toilet.query.all()) % 100 % 10)
 
 @app.route("/index/refresh-counter")
 def refresh_index():
@@ -97,9 +105,23 @@ def help():
     logger.info("GET " + url_for("help"))
     return render_template("help.html", title="HTL-Mödling kaputte Klos")
 
-
 ####### API
 @app.route("/API/get-counter")
 def api_get_counter():
     return jsonify(counter = len(Toilet.query.all()))
 
+"""
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+        login_user(user, remember=form.remember_me.data)
+        return redirect(url_for('index'))
+    return render_template('login.html', title='Sign In', form=form)
+"""

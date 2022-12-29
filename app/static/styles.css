@@ -2,7 +2,9 @@ body {
     margin: 0px;
     background: black;
     color: white;
+
     overflow-x: hidden;
+    font-family: Archivo Black;
 }
 
 button {
@@ -13,6 +15,11 @@ button {
 hr {
     border-color: darkslategrey;
     border-width: 3px;
+}
+
+.centerContainer {
+    display: flex;
+    justify-content: center;
 }
 
 /******* Navbar *********/
@@ -73,7 +80,44 @@ hr {
     margin-left: 10px;
 }
 
-/******** Navigator *****/
+/******* Login button *******/
+#login {
+    margin-left: auto;
+    top: 20px;
+    right: 10px;
+
+    width: max-content;
+    height: max-content;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.transitionButton {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+    text-decoration: underline;
+
+    color: white;
+    background-color: darkslategray;
+
+    border-width: 5px;
+    border-color: white;
+    border-radius: 10px;
+
+    transition: color 0.5s;
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+
+.transitionButton:hover {
+    cursor: pointer;
+    color: darkslategray;
+    background-color: white;
+    border-color: darkslategray;
+}
+
+/******** Navigator (e.g. help page) *****/
 
 .navigator {
     width: 500px;
@@ -88,17 +132,21 @@ hr {
     font-size: 24px;
 }
 
-/******* Titles *********/
+/******* Titles / general *********/
 .title {
     text-align: center;
     font-size: 50px;
+    margin-inline: 20px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 30px;
-    margin-right: 30px;
     margin-top: 40px;
+}
+
+.centered {
+    text-align: center;
 }
 
 /******** column ********/
@@ -115,42 +163,6 @@ hr {
 
 .column50 {
     width: 50%;
-}
-
-
-
-/******** counter *******/
-.beschriftung {
-    font-size: 30px;
-    padding: 25px;
-}
-
-.boxed {
-    padding: 10px;
-    border-radius: 5px;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-style: solid;
-    border-color: white;
-}
-
-#counter {
-    text-align: center;
-    width: 200px;
-    font-size: 100px;
-    margin: auto;
-    padding: 10px;
-    border-color: goldenrod;
-    color: brown;
-    text-shadow: 5px 5px 10px;
-    box-shadow: 5px 5px 10px;
-}
-
-.side-by-side {
-    margin: 10px 25%;
-    text-align: center;
-
-    display: inline-flex;
 }
 
 /******* Daten anzeigen *********/
@@ -230,6 +242,64 @@ form p span {
     width: 100px;
 }
 
+#gender>li {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+/******** Two cloumn section *********/
+
+.two-column-section-background {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+
+    background: #333333;
+    position: relative;
+}
+
+.two-column-section-background::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+
+    width: 100%;
+    height: 5px;
+
+    background: darkslategray;
+}
+
+.two-column-section-background::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: darkslategray;
+}
+
+.two-column-section {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.two-column-section-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.two-column-section-column>* {
+    margin: 0;
+}
+
 /********* Help ***********/
 .help-paragraph {
     border-style: solid;
@@ -248,4 +318,203 @@ div.help-paragraph h2 {
 
 div.help-paragraph p {
     font-size: 24px;
+}
+
+/******* 404 page ********/
+
+#thinkingImageError {
+    position: absolute;
+
+    top: 140px;
+    right: 20%;
+    transform: rotateZ(30deg) translateY(100px);
+    z-index: -1;
+}
+
+/***************** Counter *******************/
+
+:root {
+    --successorRotation: 50deg;
+    --predecessorRotation: -50deg;
+    --negativePredecessorRotation: 50deg;
+}
+
+#counter {
+    margin: auto;
+    width: max-content;
+}
+
+#backgroundgiver {
+    background-image:
+        linear-gradient(black, #e4e4e4, black);
+}
+
+.threeNumberContainer {
+    margin: 10px;
+    height: 65px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    gap: 20px;
+    color: darkslategray;
+}
+
+.counter-number {
+    font-size: 64px;
+}
+
+
+#cloneSuccessor {
+    opacity: 0;
+}
+
+#successor {
+    transform: rotate3d(1, 0, 0, var(--successorRotation));
+}
+
+#number {
+    transform: rotate3d(1, 0, 0, var(--numberRotation));
+    font-weight: bold;
+}
+
+#predecessor {
+    transform: rotate3d(1, 0, 0, var(--predecessorRotation));
+}
+
+#clonePredecessor {
+    opacity: 0;
+}
+
+/******* animations ********/
+/* INCREASE ANIMATION */
+
+.successorIncrease {
+    animation: increaseSuccessor 1s;
+}
+
+.numberIncrease {
+    animation: increaseNumber 1s;
+}
+
+.predecessorIncrease {
+    animation: increasePredecessor 1s;
+}
+
+.clonePredecessorIncrease {
+    animation: increaseClonePredecessor 1s;
+}
+
+@keyframes increaseSuccessor {
+    from {
+        opacity: 0%;
+        transform: translateY(-40px) rotate3d(1, 0, 0, 70deg);
+    }
+
+    to {
+        opacity: 100%;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+}
+
+@keyframes increaseNumber {
+    from {
+        font-weight: normal;
+        transform: translateY(-70px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+
+    to {
+        font-weight: bold;
+        transform: translateY(0px) rotate3d(1, 0, 0, 0deg);
+    }
+}
+
+@keyframes increasePredecessor {
+    from {
+        font-weight: bold;
+        transform: translateY(-70px) rotate3d(1, 0, 0, 0deg);
+    }
+
+    to {
+        font-weight: normal;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+}
+
+@keyframes increaseClonePredecessor {
+    from {
+        opacity: 100%;
+        transform: TranslateY(-70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        opacity: 0%;
+        transform: TranslateY(-30px) rotate3d(1, 0, 0, -70deg);
+    }
+}
+
+
+/* DECREASE ANIMATION */
+
+.successorDecrease {
+    animation: decreaseSuccessor 1s;
+}
+
+.numberDecrease {
+    animation: decreaseNumber 1s;
+}
+
+.predecessorDecrease {
+    animation: decreasePredecessor 1s;
+}
+
+.cloneSuccessorDecrease {
+    animation: decreaseCloneSuccessor 1s;
+}
+
+@keyframes decreaseCloneSuccessor {
+    from {
+        opacity: 100%;
+        transform: TranslateY(70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        opacity: 0%;
+        transform: TranslateY(40px) rotate3d(1, 0, 0, -70deg);
+    }
+}
+
+@keyframes decreaseSuccessor {
+    from {
+        transform: translateY(70px) rotate3d(1, 0, 0, 0deg);
+    }
+
+    to {
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--successorRotation));
+    }
+}
+
+@keyframes decreaseNumber {
+    from {
+        font-weight: normal;
+        transform: translateY(70px) rotate3d(1, 0, 0, var(--predecessorRotation));
+    }
+
+    to {
+        font-weight: bold;
+        transform: translateY(0px) rotate3d(1, 0, 0, 0deg);
+    }
+}
+
+@keyframes decreasePredecessor {
+    from {
+        opacity: 0;
+        transform: translateY(40px) rotate3d(1, 0, 0, 75deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px) rotate3d(1, 0, 0, var(--negativePredecessorRotation));
+    }
 }
