@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm 
-from wtforms import BooleanField, SubmitField, IntegerField, RadioField
+from wtforms import BooleanField, SubmitField, IntegerField, RadioField, StringField, PasswordField
 from wtforms.validators import NumberRange, InputRequired, DataRequired
  
 class NeuesKloForm(FlaskForm):
@@ -13,4 +13,10 @@ class NeuesKloForm(FlaskForm):
 
 class KloLöschenForm(FlaskForm):
     submit = SubmitField("Löschen")
+
+class LoginForm(FlaskForm):
+    username = StringField("Benutzername")
+    password = PasswordField("Passwort")
+    remember_me = BooleanField("angemeldet bleiben")
+    submit = SubmitField("Einloggen")
     

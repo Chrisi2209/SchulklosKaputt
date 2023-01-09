@@ -202,29 +202,21 @@ form ul li {
     width: 200px;
 }
 
-form p input {
-    margin: auto;
-}
-
-form p span {
-    text-align: right;
-}
-
 .error {
     color: red;
 }
 
-.addToilet-form input {
+.form-container input {
     width: 100px;
     border-radius: 8px;
     padding-left: 5px;
 }
 
-.addToilet-form input[type="checkbox"] {
+.form-container input[type="checkbox"] {
     width: 18px;
 }
 
-.addToilet-form input[type="submit"] {
+.form-container input[type="submit"] {
     width: 100px;
 }
 
@@ -234,9 +226,9 @@ form p span {
     justify-content: center
 }
 
-/******** Two cloumn section *********/
+/******** Section ***********/
 
-.two-column-section-background {
+.section-background {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
@@ -245,10 +237,11 @@ form p span {
     position: relative;
 }
 
-.two-column-section-background::before {
+.section-background::before {
     content: "";
     position: absolute;
     top: -5px;
+    left: 0;
 
     width: 100%;
     height: 5px;
@@ -256,7 +249,7 @@ form p span {
     background: darkslategray;
 }
 
-.two-column-section-background::after {
+.section-background::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -267,6 +260,8 @@ form p span {
 
     background: darkslategray;
 }
+
+/******** Two cloumn section *********/
 
 .two-column-section {
     width: 100%;

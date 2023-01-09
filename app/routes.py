@@ -1,7 +1,8 @@
 from app import app, db, logger
-from app.models import Toilet
-from app.forms import NeuesKloForm, KloLöschenForm
+from app.models import Toilet, User
+from app.forms import NeuesKloForm, KloLöschenForm, LoginForm
 from flask import render_template, flash, redirect, url_for, jsonify
+from flask_login import current_user, login_user
 
 
 # Decorator to log request to this function as get request
@@ -80,7 +81,7 @@ def klo_anmelden():
         # didnt pass validation
         if not form.validate():
             logger.info("POST " + url_for("kloansicht") + " provided data declined")
-            return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", form=form)
+            return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form)
         
         gender = True if form.gender.data == "female" else False
         # no pissoir in female toilets
@@ -105,18 +106,25 @@ def help():
     logger.info("GET " + url_for("help"))
     return render_template("help.html", title="HTL-Mödling kaputte Klos")
 
-"""
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # if user already logged in
     if current_user.is_authenticated:
+        flash("Bereits eingeloggt")
         return redirect(url_for('index'))
+
     form = LoginForm()
     if form.validate_on_submit():
+        # if submitted
+        # get a user that matches the username
         user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
+        # if no user with that username or the password is incorrect, login failed
+        if user is None or not user.compare_password(form.password.data):
+            return render_template('login.html', title='Sign In', form=form, errorMessage='Invalid username or password')
+        # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
+        flash("login succeeded")
         return redirect(url_for('index'))
+
     return render_template('login.html', title='Sign In', form=form)
-"""

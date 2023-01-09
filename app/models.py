@@ -35,3 +35,8 @@ class User(UserMixin, db.Model):
     @login.user_loader
     def load_user(id):
         return User.query.get(int(id))
+
+    def __repr__(self):
+        return f"<User {self.username}"
+    
+    __str__ = __repr__
