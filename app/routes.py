@@ -3,6 +3,7 @@ from app.models import Toilet, User
 from app.forms import NeuesKloForm, KloLöschenForm, LoginForm
 from flask import render_template, flash, redirect, url_for, jsonify
 from flask_login import current_user, login_user
+import random
 
 
 # Decorator to log request to this function as get request
@@ -14,14 +15,26 @@ def log_get_request(func):
 
     return wrapper
 
+# decorator for a chance to get rick rolled
+def rick_roll():
+    if random.randint(1, 100) <= 10:
+        logger.info("Someone just got rickrolled")
+        return True
+    
+    return False
+
+
 @app.errorhandler(404)
 def not_found(e):
     return render_template("error.html")
 
 @app.route("/") 
 @app.route("/index") 
-@app.route("/home") 
-def index(): 
+@app.route("/home")
+def index():
+    if rick_roll():
+        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
     logger.info("GET " + url_for("index"))
     return render_template("index.html", title="HTL-Mödling kaputte klos", authenticated=False, anzahl=len(Toilet.query.all()), 
                            number100_val=len(Toilet.query.all()) // 100,
@@ -101,8 +114,12 @@ def klo_anmelden():
 
     return render_template("klo_anmelden.html", title="kaputtes Klo anmelden", form=form)
 
+
 @app.route("/help")
 def help():
+    if rick_roll():
+        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+        
     logger.info("GET " + url_for("help"))
     return render_template("help.html", title="HTL-Mödling kaputte Klos")
 
