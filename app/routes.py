@@ -15,9 +15,10 @@ def log_get_request(func):
 
     return wrapper
 
-# decorator for a chance to get rick rolled
+# A chance to get rick rolled
 def rick_roll():
-    if random.randint(1, 100) <= 10:
+    CHANCE_IN_PERCENT = 10
+    if random.randint(1, 100) <= CHANCE_IN_PERCENT:
         logger.info("Someone just got rickrolled")
         return True
     
