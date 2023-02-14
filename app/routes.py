@@ -125,6 +125,12 @@ def help():
     return render_template("help.html", title="HTL-Mödling kaputte Klos")
 
 
+####### API
+@app.route("/API/get-counter")
+def api_get_counter():
+    return jsonify(counter = len(Toilet.query.all()))
+
+"""
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # if user already logged in
@@ -146,3 +152,4 @@ def login():
         return redirect(url_for('index'))
 
     return render_template('login.html', title='Sign In', form=form)
+"""

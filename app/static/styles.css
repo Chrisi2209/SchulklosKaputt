@@ -2,6 +2,8 @@ body {
     margin: 0px;
     background: black;
     color: white;
+
+    overflow-x: hidden;
     font-family: Archivo Black;
 }
 
@@ -24,35 +26,49 @@ hr {
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
+
     width: 100%;
     padding: 0px;
-    background-color: darkslategrey;
+    padding-top: 5px;
+    background-color: black;
     margin: 0;
 }
 
+
 .navbar a {
-    flex-basis: auto;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
+    justify-self: center;
     text-decoration: none;
     margin: 0;
 }
 
-button.navitem,
+#navitem4 {
+    justify-self: flex-end;
+}
+
 .navitem {
+    min-width: 100px;
+    width: max-content;
     margin: 0;
-    flex-grow: 1;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
-    border-width: 0px;
-    background-color: darkslategray;
+    border-width: 1px;
+    background-color: white;
+    border-color: darkslategrey;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    transition-property: color, background-color, border-color;
+    transition-duration: 0.5s;
 }
 
+
 .navitem:hover {
-    background-color: darkcyan;
+    background-color: grey;
+    color: white;
     cursor: pointer;
 }
 
@@ -151,40 +167,38 @@ button.navitem,
 
 /******* Daten anzeigen *********/
 
-h1 a {
-    text-decoration: underline;
-    text-decoration-color: purple;
-    color: green;
-}
-
 .klodisplay {
     text-align: center;
+    margin: auto;
     font-size: 20px;
 }
 
 a {
     text-decoration: underline;
     color: gray;
+    transition: transform 0.3s;
 }
 
-span[data-descr] {
+.klodisplay a:hover {
+    transform: scale(1.1);
+}
+
+a[data-descr] {
     position: relative;
-    text-decoration: underline;
-    color: #00f;
 }
 
-span[data-descr]:hover::after,
-span[data-descr]:focus::after {
+a[data-descr]:hover::after,
+a[data-descr]:focus::after {
     content: attr(data-descr);
     position: absolute;
-    left: 0;
-    top: 24px;
-    min-width: 200px;
-    border: 1px #aaaaaa solid;
+    left: 150px;
+    top: 0;
+    width: max-content;
+    border: 1px white solid;
     border-radius: 10px;
-    background-color: #ffffcc;
+    background-color: grey;
     padding: 5px;
-    color: #000000;
+    color: white;
     font-size: 14px;
     z-index: 1;
 }
