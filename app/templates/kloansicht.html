@@ -8,7 +8,8 @@
     <div class="column50">
         <h1 class="subtitle">Knaben</h1>
         {% for broken_boy_toilet in broken_boy_toilets %}
-        <p class="klodisplay"><a data-descr="löschen" href="kloansicht/{{broken_boy_toilet}}">{{broken_boy_toilet}}</a>
+        <p class="klodisplay"><a {% if authenticated==True %} data-descr="löschen" {% endif %}
+                href="kloansicht/{{broken_boy_toilet}}">{{broken_boy_toilet}}</a>
         </p><br>
         {% endfor %}
     </div>

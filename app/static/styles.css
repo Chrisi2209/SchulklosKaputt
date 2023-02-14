@@ -191,7 +191,7 @@ a[data-descr]:hover::after,
 a[data-descr]:focus::after {
     content: attr(data-descr);
     position: absolute;
-    left: 150px;
+    left: calc(100% + 10px);
     top: 0;
     width: max-content;
     border: 1px white solid;
