@@ -7,7 +7,7 @@ import random
 
 # A chance to get rick rolled
 def rick_roll():
-    CHANCE_IN_PERCENT = 1
+    CHANCE_IN_PERCENT = 5
     if random.randint(1, 100) <= CHANCE_IN_PERCENT:
         logger.info("Someone just got rickrolled")
         return True
@@ -52,7 +52,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         # if no user with that username or the password is incorrect, login failed
         if user is None or not user.compare_password(form.password.data):
-            return render_template('login.html', title='Sign In', form=form, errorMessage='Invalid username or password', authenticated=current_user.is_authenticated,)
+            return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Username oder Passwort', authenticated=current_user.is_authenticated,)
         # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
         flash("login succeeded")
@@ -95,7 +95,7 @@ def kloansicht():
 @app.route("/kloansicht/<klo>", methods=["GET", "POST"])
 def kloansicht_klo(klo):
     if not current_user.is_authenticated:
-        flash("Du bist nicht angemeldet!")
+        flash("Dafür musst du angemeldet sein!")
         return redirect(url_for("index"))
 
     form = KloLöschenForm()
@@ -126,7 +126,7 @@ def kloansicht_klo(klo):
 @app.route("/klo-anmelden", methods=["GET", "POST"])
 def klo_anmelden():
     if not current_user.is_authenticated:
-        flash("Du bist nicht angemeldet!")
+        flash("Dafür musst du angemeldet sein!")
         return redirect(url_for("index"))
 
     form = NeuesKloForm()

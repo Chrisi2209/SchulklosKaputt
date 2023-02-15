@@ -4,7 +4,7 @@ body {
     color: white;
 
     overflow-x: hidden;
-    font-family: Archivo Black;
+    font-family: Archivo Black, Trebuchet MS;
 }
 
 button {
@@ -179,6 +179,7 @@ a {
     transition: transform 0.3s;
 }
 
+/* hover not working styly */
 .klodisplay a:hover {
     transform: scale(1.1);
 }
