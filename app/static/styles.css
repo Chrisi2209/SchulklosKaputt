@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    margin-top: 60px;
     background: black;
     color: white;
 
@@ -22,9 +23,61 @@ hr {
     justify-content: center;
 }
 
+/*** dropdownicon ***/
+:root {
+    --dropdownicon_height: 80px;
+    --dropdownicon_left: 20px;
+    --dropdownicon_width: 25px;
+    --dropdownicon_offset: -20px;
+}
+
+.dropdownicon-container {
+    position: absolute;
+    top: var(--dropdownicon_offset);
+    left: var(--dropdownicon_left);
+    background-color: white;
+    width: var(--dropdownicon_width);
+    transition: transform 0.1s;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    background-color: darkslategray;
+    width: var(--dropdownicon_width);
+    height: var(--dropdownicon_height);
+}
+
+.cut {
+    position: absolute;
+    background-color: white;
+    left: calc(6px + var(--dropdownicon_width) / 2);
+    top: calc(var(--dropdownicon_height) + 6px - var(--dropdownicon_width) / 2);
+    height: calc(var(--dropdownicon_width) / 2);
+    width: calc(var(--dropdownicon_width) / 2);
+
+    transform: rotateZ(45deg) scale(1);
+}
+
+.dropdownicon-container:hover {
+    transform: translateY(7px);
+    cursor: pointer;
+}
+
+.displayFlex {
+    display: flex !important;
+}
+
+.displayNone {
+    display: none !important;
+}
+
 /******* Navbar *********/
 
 .navbar {
+    position: absolute;
+    top: 5px;
+
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -38,7 +91,6 @@ hr {
 
 
 .navbar a {
-    justify-self: center;
     text-decoration: none;
     margin: 0;
 }
@@ -58,8 +110,6 @@ hr {
     background-color: white;
     border-color: darkslategrey;
     border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
 
     transition-property: color, background-color, border-color;
     transition-duration: 0.5s;
@@ -513,4 +563,23 @@ div.help-paragraph p {
         opacity: 1;
         transform: translateY(0px) rotate3d(1, 0, 0, var(--negativePredecessorRotation));
     }
+}
+
+
+/****** mediaquerry ********/
+@media only screen and (max-width: 700px) {
+    .navbar {
+        top: 0;
+        left: 15px;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        flex-direction: column;
+        height: max-content;
+        width: max-content;
+        background-color: darkslategray;
+    }
+
+    .navitem {}
 }

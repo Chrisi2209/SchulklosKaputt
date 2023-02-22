@@ -16,6 +16,12 @@
 </head>
 
 <body>
+    <div class="dropdownicon-container" onclick="openNavbar()">
+        <div class="icon"></div>
+        <div class="cut" . id="cut"></div>
+        <div class="left_cut"></div>
+    </div>
+
     <div class="navbar">
         <a id="navitem1" href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
         <a id="navitem2" href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
@@ -27,6 +33,7 @@
         <a id="navitem3" href="{{ url_for('login') }}"><button class="navitem">Anmelden</button></a>
         {% endif %}
     </div>
+
 
     <div class="flash">
         {% for flash in get_flashed_messages() %}
