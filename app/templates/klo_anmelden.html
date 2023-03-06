@@ -6,7 +6,7 @@
     <div class="form-container" id="addToiletForm">
         <div class="section-background">
             <div class="two-column-section">
-                <div class="two-column-section-column">
+                <div class="two-column-left-section">
                     {{ form.hidden_tag() }}
                     <div>
                         {{ form.building.label }}<br>{{ form.building() }}
@@ -28,7 +28,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="two-column-section-column">
+                <div class="two-column-right-section">
                     {{ form.gender() }}
                     <div>
                         {% for error in form.gender.errors %}
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <p>{{ form.submit() }}</p>
-            <a href="{{ url_for('help') }}#AddToilet">Hilfe?</a>
+            <p><a href="{{ url_for('help') }}#AddToilet">Hilfe?</a></p>
         </div>
     </div>
 </form>

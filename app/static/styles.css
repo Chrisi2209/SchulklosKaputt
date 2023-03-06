@@ -258,11 +258,16 @@ a[data-descr]:focus::after {
 }
 
 /******* forms ***************/
+
 form p,
-form a,
+form a {
+    text-align: center;
+}
+
 form ul {
-    margin-left: 40%;
-    padding: 0px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
 }
 
 form ul li {
@@ -338,11 +343,15 @@ form ul li {
     align-items: center;
 }
 
-.two-column-section-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.two-column-left-section {
     width: 50%;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.two-column-right-section {
+    width: 50%;
+    margin-left: 20px;
 }
 
 .two-column-section-column>* {
