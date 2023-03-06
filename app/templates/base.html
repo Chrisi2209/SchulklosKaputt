@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="dropdownicon-container" onclick="openNavbar()">
+    <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
         <div class="icon"></div>
         <div class="cut" . id="cut"></div>
         <div class="left_cut"></div>
@@ -44,6 +44,8 @@
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+    <script src="{{ url_for('static', filename='base.js') }}"></script>
 </body>
 
 </html>

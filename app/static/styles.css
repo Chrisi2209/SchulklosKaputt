@@ -29,9 +29,14 @@ hr {
     --dropdownicon_left: 20px;
     --dropdownicon_width: 25px;
     --dropdownicon_offset: -20px;
+
+    --dropheight: 262px;
 }
 
 .dropdownicon-container {
+    z-index: 1;
+    display: none;
+
     position: absolute;
     top: var(--dropdownicon_offset);
     left: var(--dropdownicon_left);
@@ -50,7 +55,7 @@ hr {
 
 .cut {
     position: absolute;
-    background-color: white;
+    background-color: black;
     left: calc(6px + var(--dropdownicon_width) / 2);
     top: calc(var(--dropdownicon_height) + 6px - var(--dropdownicon_width) / 2);
     height: calc(var(--dropdownicon_width) / 2);
@@ -60,21 +65,19 @@ hr {
 }
 
 .dropdownicon-container:hover {
-    transform: translateY(7px);
     cursor: pointer;
 }
 
-.displayFlex {
-    display: flex !important;
-}
+.dropdownicon-hoverdrop:hover {
+    /*.dropdownicon-hoverdrop:focus*/
 
-.displayNone {
-    display: none !important;
+    transform: translateY(7px);
 }
 
 /******* Navbar *********/
 
 .navbar {
+    z-index: 1;
     position: absolute;
     top: 5px;
 
@@ -565,12 +568,43 @@ div.help-paragraph p {
     }
 }
 
+/* dropdown icon drop animation */
+.drop-animation {
+    animation: dropdown 0.7s;
+}
+
+.dropup-animation {
+    animation: dropup 0.7s;
+}
+
+@keyframes dropdown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(var(--dropheight));
+    }
+}
+
+@keyframes dropup {
+    from {
+        transform: translateY(var(--dropheight));
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
 
 /****** mediaquerry ********/
 @media only screen and (max-width: 700px) {
     .navbar {
-        top: 0;
+        display: flex;
+        top: calc(-1 * var(--dropheight));
         left: 15px;
+        gap: 10px;
         padding-left: 5px;
         padding-bottom: 5px;
         padding-right: 5px;
@@ -581,5 +615,11 @@ div.help-paragraph p {
         background-color: darkslategray;
     }
 
-    .navitem {}
+    .dropdownicon-container {
+        display: block;
+    }
+
+    .dropped {
+        transform: translateY(var(--dropheight));
+    }
 }
