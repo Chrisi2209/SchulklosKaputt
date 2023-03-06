@@ -1,10 +1,11 @@
 body {
     margin: 0px;
+    margin-top: 60px;
     background: black;
     color: white;
 
     overflow-x: hidden;
-    font-family: Archivo Black;
+    font-family: Archivo Black, Trebuchet MS;
 }
 
 button {
@@ -22,9 +23,64 @@ hr {
     justify-content: center;
 }
 
+/*** dropdownicon ***/
+:root {
+    --dropdownicon_height: 80px;
+    --dropdownicon_left: 20px;
+    --dropdownicon_width: 25px;
+    --dropdownicon_offset: -20px;
+
+    --dropheight: 262px;
+}
+
+.dropdownicon-container {
+    z-index: 1;
+    display: none;
+
+    position: absolute;
+    top: var(--dropdownicon_offset);
+    left: var(--dropdownicon_left);
+    background-color: white;
+    width: var(--dropdownicon_width);
+    transition: transform 0.1s;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    background-color: darkslategray;
+    width: var(--dropdownicon_width);
+    height: var(--dropdownicon_height);
+}
+
+.cut {
+    position: absolute;
+    background-color: black;
+    left: calc(6px + var(--dropdownicon_width) / 2);
+    top: calc(var(--dropdownicon_height) + 6px - var(--dropdownicon_width) / 2);
+    height: calc(var(--dropdownicon_width) / 2);
+    width: calc(var(--dropdownicon_width) / 2);
+
+    transform: rotateZ(45deg) scale(1);
+}
+
+.dropdownicon-container:hover {
+    cursor: pointer;
+}
+
+.dropdownicon-hoverdrop:hover {
+    /*.dropdownicon-hoverdrop:focus*/
+
+    transform: translateY(7px);
+}
+
 /******* Navbar *********/
 
 .navbar {
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -38,7 +94,6 @@ hr {
 
 
 .navbar a {
-    justify-self: center;
     text-decoration: none;
     margin: 0;
 }
@@ -58,8 +113,6 @@ hr {
     background-color: white;
     border-color: darkslategrey;
     border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
 
     transition-property: color, background-color, border-color;
     transition-duration: 0.5s;
@@ -179,6 +232,7 @@ a {
     transition: transform 0.3s;
 }
 
+/* hover not working styly */
 .klodisplay a:hover {
     transform: scale(1.1);
 }
@@ -191,7 +245,7 @@ a[data-descr]:hover::after,
 a[data-descr]:focus::after {
     content: attr(data-descr);
     position: absolute;
-    left: 150px;
+    left: calc(100% + 10px);
     top: 0;
     width: max-content;
     border: 1px white solid;
@@ -511,5 +565,61 @@ div.help-paragraph p {
     to {
         opacity: 1;
         transform: translateY(0px) rotate3d(1, 0, 0, var(--negativePredecessorRotation));
+    }
+}
+
+/* dropdown icon drop animation */
+.drop-animation {
+    animation: dropdown 0.7s;
+}
+
+.dropup-animation {
+    animation: dropup 0.7s;
+}
+
+@keyframes dropdown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(var(--dropheight));
+    }
+}
+
+@keyframes dropup {
+    from {
+        transform: translateY(var(--dropheight));
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+/****** mediaquerry ********/
+@media only screen and (max-width: 700px) {
+    .navbar {
+        display: flex;
+        top: calc(-1 * var(--dropheight));
+        left: 15px;
+        gap: 10px;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        flex-direction: column;
+        height: max-content;
+        width: max-content;
+        background-color: darkslategray;
+    }
+
+    .dropdownicon-container {
+        display: block;
+    }
+
+    .dropped {
+        transform: translateY(var(--dropheight));
     }
 }

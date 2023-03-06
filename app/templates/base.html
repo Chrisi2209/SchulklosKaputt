@@ -16,12 +16,24 @@
 </head>
 
 <body>
+    <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
+        <div class="icon"></div>
+        <div class="cut" . id="cut"></div>
+        <div class="left_cut"></div>
+    </div>
+
     <div class="navbar">
         <a id="navitem1" href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
         <a id="navitem2" href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
-        <a id="navitem3" href="{{ url_for('klo_anmelden') }}"><button class="navitem">Klo melden</button></a>
         <a id="navitem4" href="{{ url_for('help') }}"><button class="navitem">Hilfe</button></a>
+        {% if authenticated == True %}
+        <a id="navitem3" href="{{ url_for('klo_anmelden') }}"><button class="navitem">Klo melden</button></a>
+        <a id="navitem3" href="{{ url_for('logout') }}"><button class="navitem">Abmelden</button></a>
+        {% else %}
+        <a id="navitem3" href="{{ url_for('login') }}"><button class="navitem">Anmelden</button></a>
+        {% endif %}
     </div>
+
 
     <div class="flash">
         {% for flash in get_flashed_messages() %}
@@ -32,6 +44,8 @@
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+    <script src="{{ url_for('static', filename='base.js') }}"></script>
 </body>
 
 </html>
