@@ -98,10 +98,6 @@ hr {
     margin: 0;
 }
 
-#navitem4 {
-    justify-self: flex-end;
-}
-
 .navitem {
     min-width: 100px;
     width: max-content;
@@ -118,11 +114,14 @@ hr {
     transition-duration: 0.5s;
 }
 
-
 .navitem:hover {
     background-color: grey;
     color: white;
     cursor: pointer;
+}
+
+#filler-navitem {
+    display: none;
 }
 
 /******** Flash messages ****/
@@ -630,5 +629,9 @@ div.help-paragraph p {
 
     .dropped {
         transform: translateY(var(--dropheight));
+    }
+
+    #filler-navitem {
+        display: block;
     }
 }
