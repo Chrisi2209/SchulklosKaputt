@@ -55,7 +55,7 @@ def login():
             return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Username oder Passwort', authenticated=current_user.is_authenticated,)
         # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
-        flash("login succeeded")
+        flash("Login erfolgreich")
         return redirect(url_for('index'))
 
     return render_template('login.html', title='Sign In', form=form, authenticated=current_user.is_authenticated,)

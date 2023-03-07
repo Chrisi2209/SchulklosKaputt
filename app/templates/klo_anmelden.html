@@ -9,23 +9,25 @@
                 <div class="two-column-left-section">
                     {{ form.hidden_tag() }}
                     <div>
-                        {{ form.building.label }}<br>{{ form.building() }}
+                        {{ form.building.label }}<br>
                         {% for error in form.building.errors %}
                         <span class="error">[{{ error }}]</span>
                         {% endfor %}
+                        {{ form.building() }}
                     </div>
                     <div>
-
-                        {{ form.floor.label }}<br>{{ form.floor() }}
+                        {{ form.floor.label }}<br>
                         {% for error in form.floor.errors %}
                         <span class="error">[{{ error }}]</span>
                         {% endfor %}
+                        {{ form.floor() }}
                     </div>
                     <div>
-                        {{ form.room.label }}<br>{{ form.room() }}
+                        {{ form.room.label }}<br>
                         {% for error in form.room.errors %}
                         <span class="error">[{{ error }}]</span>
                         {% endfor %}
+                        {{ form.room() }}
                     </div>
                 </div>
                 <div class="two-column-right-section">

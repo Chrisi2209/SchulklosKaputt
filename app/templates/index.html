@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">Live counter für die Anzahl an kaputten Heisl in der HTL Mödling</h1>
-
 <div id="counter">
     <div class="threeNumberContainer" id="cloneSuccessor">
         <div class="counter-number" id="cloneSuccessor100"></div>
@@ -34,6 +32,8 @@
         <div class="counter-number" id="clonePredecessor1"></div>
     </div>
 </div>
+
+<h1 class="title">Live counter für die Anzahl an kaputten Heisl in der HTL Mödling</h1>
 
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 
