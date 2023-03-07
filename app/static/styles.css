@@ -129,8 +129,8 @@ hr {
 .flash {
     position: absolute;
     color: darkcyan;
-    top: 20px;
-    left: 15px;
+    top: 50px;
+    left: 30%;
 }
 
 /******* Login button *******/

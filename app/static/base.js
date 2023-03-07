@@ -45,3 +45,13 @@ function toggleNavbar() {
         dropdown_container.addEventListener('animationend', dropupEndEvent)
     }
 }
+
+var body = document.getElementsByTagName("body")[0]
+var flash_container = document.getElementsByClassName("flash")[0]
+var flash_exists = flash_container.childNodes
+
+if (flash_exists.length != 1) {
+    body.style.marginTop = "90px";
+    console.log("flash")
+    console.log(flash_exists)
+}
