@@ -85,8 +85,6 @@ def kloansicht():
     sorted_boy_toilet_names = [toilet.__str__() for toilet in Toilet.query.filter_by(gender=False).all()]
     sorted_boy_toilet_names.sort()
 
-    print(sorted_boy_toilet_names)
-
     logger.info("GET " + url_for("kloansicht"))
     return render_template("kloansicht.html", title="HTL-Mödling Kloansicht", broken_girl_toilets=sorted_girl_toilet_names,
                            broken_boy_toilets=sorted_boy_toilet_names, authenticated=current_user.is_authenticated)
