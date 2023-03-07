@@ -2,7 +2,7 @@ from app import app, db, logger
 from app.models import Toilet, User
 from app.forms import NeuesKloForm, KloLöschenForm, LoginForm
 from flask import render_template, flash, redirect, url_for, jsonify
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, login_required, logout_user
 import random
 
 # A chance to get rick rolled
@@ -55,7 +55,8 @@ def login():
             return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Username oder Passwort', authenticated=current_user.is_authenticated,)
         # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
-        flash("Login erfolgreich")
+        flash("login erfolgreich")
+
         return redirect(url_for('index'))
 
     return render_template('login.html', title='Sign In', form=form, authenticated=current_user.is_authenticated,)
@@ -156,5 +157,8 @@ def klo_anmelden():
 
    
 @app.route("/logout")
+@login_required
 def logout():
-    pass
+    flash("Logout erfolgreich")
+    logout_user()
+    return redirect(url_for('index'))
