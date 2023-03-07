@@ -132,7 +132,7 @@ def klo_anmelden():
     if form.is_submitted():
         # didnt pass validation
         if not form.validate():
-            logger.info("POST " + url_for("kloansicht") + " provided data declined")
+            logger.info("POST " + url_for("klo_anmelden") + " provided data declined")
             return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, authenticated=current_user.is_authenticated)
         
         gender = True if form.gender.data == "female" else False
