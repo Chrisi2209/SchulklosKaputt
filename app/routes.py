@@ -52,7 +52,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         # if no user with that username or the password is incorrect, login failed
         if user is None or not user.compare_password(form.password.data):
-            return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Username oder Passwort', authenticated=current_user.is_authenticated,)
+            return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Benutzername oder Passwort', authenticated=current_user.is_authenticated,)
         # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
         flash("login erfolgreich")
@@ -138,8 +138,8 @@ def klo_anmelden():
         gender = True if form.gender.data == "female" else False
         # no pissoir in female toilets
         if gender == True and form.pissoir.data == True:
-            flash("Mädchen Klos verfügen über keine Pissoire")
-            return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, authenticated=current_user.is_authenticated)
+            return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, 
+                                   authenticated=current_user.is_authenticated, error_message="Mädchen Klos verfügen über keine Pissoire")
 
         # add toilet
         added_toilet = Toilet(building=form.building.data, floor=form.floor.data, 
