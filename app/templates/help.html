@@ -8,12 +8,14 @@
         <li>
             <p><a href="#WebsiteDescription">Zweck der Webseite</a></p>
         </li>
+        {% if authenticated == True %}
         <li>
             <p><a href="#AddToilet">Kaputtes Klo hinzufügen</a></p>
         </li>
         <li>
             <p><a href="#RemoveToilet">Repariertes Klo entfernen</a></p>
         </li>
+        {% endif %}
         <li>
             <p><a href="#DefinitionBrokenToilet">Definition kaputtes Klo</a></p>
         </li>
@@ -27,12 +29,10 @@
     <h2>Was macht diese Webseite?</h2>
     <p>
         Diese Webseite zeigt an, wie viele Klos der HTL-Mödling aktuell kaputt sind.<br>
-        Die genaue Anzahl wird durch die Community ermittelt. Jeder kann die Datenbank der kaputten Klos bearbeiten.
-        Dazu gehen Sie auf den Menüpunkt <a href="{{ url_for('kloansicht') }}">klodaten</a>. Dort können Sie ein neues
-        Klo hinzufügen oder ein aktuell kaputt gemeldetes Klo wieder als nicht kaputt melden, wenn es repariert wurde.
+        Die genaue Anzahl der Klos wird durch Admins aktuell gehalten.
     </p>
 </div>
-
+{% if authenticated == True %}
 <div class="help-paragraph" id="AddToilet">
     <h2>Wie kann ich ein kaputtes Klo hinzufügen?</h2>
     <p>
@@ -71,6 +71,7 @@
         Zähler um 1 erhöht hat (solange kein anderes Klo zur selben Zeit hinzugefügt oder gelöscht wurde):
     </p>
 </div>
+
 <div class="help-paragraph" id="RemoveToilet">
     <h2>Wie kann ich ein repariertes Klo wieder entfernen?</h2>
     <p>
@@ -81,6 +82,7 @@
         drücken Sie "Löschen". Das Klo wurde dadurch gelöscht.
     </p>
 </div>
+{% endif %}
 
 <div class="help-paragraph" id="DefinitionBrokenToilet">
     <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
