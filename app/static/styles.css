@@ -1,7 +1,11 @@
+:root {
+    --background-color: #262626;
+}
+
 body {
     margin: 0px;
     margin-top: 60px;
-    background: black;
+    background: var(--background-color);
     color: white;
 
     overflow-x: hidden;
@@ -55,7 +59,7 @@ hr {
 
 .cut {
     position: absolute;
-    background-color: black;
+    background-color: var(--background-color);
     left: calc(6px + var(--dropdownicon_width) / 2);
     top: calc(var(--dropdownicon_height) + 6px - var(--dropdownicon_width) / 2);
     height: calc(var(--dropdownicon_width) / 2);
@@ -88,7 +92,6 @@ hr {
     width: 100%;
     padding: 0px;
     padding-top: 5px;
-    background-color: black;
     margin: 0;
 }
 
@@ -362,8 +365,8 @@ form ul li {
 .help-paragraph {
     border-style: solid;
     border-color: white;
-    background-color: #333333;
-    box-shadow: 5px 10px #1a1a1a;
+    background-color: #404040;
+    /*box-shadow: 5px 10px #1a1a1a;*/
     border-radius: 10px;
     margin: 50px;
     padding: 10px;
@@ -404,7 +407,7 @@ div.help-paragraph p {
 
 #backgroundgiver {
     background-image:
-        linear-gradient(black, #e4e4e4, black);
+        linear-gradient(var(--background-color), #e4e4e4, var(--background-color));
 }
 
 .threeNumberContainer {
