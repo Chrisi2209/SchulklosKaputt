@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">Login</h1>
-<form action="" method="post" novalidate>
-    <div class="form-container section-background">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>{{ form.username() }}
-            {% for error in form.username.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>{{ form.password() }}
-            {% for error in form.password.errors %}
-            <span class="error">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+<header>
+    <h1 class="title">Login</h1>
+</header>
+<main>
+    <form action="" method="post" novalidate>
+        <div class="form-container section-background">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label }}<br>{{ form.username() }}
+                {% for error in form.username.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>{{ form.password() }}
+                {% for error in form.password.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p>{{ form.submit() }}</p>
 
-        <p class="error">{{ errorMessage }}</p>
-    </div>
-</form>
+            <p class="error">{{ errorMessage }}</p>
+        </div>
+    </form>
+</main>
 {% endblock %}

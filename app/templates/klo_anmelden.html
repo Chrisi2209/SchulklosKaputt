@@ -1,60 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="title">Klo anmelden</h2>
-<form action="" method="post" novalidate>
-    <div class="form-container" id="addToiletForm">
-        <div class="section-background">
-            <div class="two-column-section">
-                <div class="two-column-left-section">
-                    {{ form.hidden_tag() }}
-                    <div>
-                        {{ form.building.label }}<br>
-                        {% for error in form.building.errors %}
-                        <span class="error">[{{ error }}]</span>
-                        {% endfor %}
-                        {{ form.building() }}
+<header>
+    <h2 class="title">Klo anmelden</h2>
+</header>
+<main>
+    <form action="" method="post" novalidate>
+        <div class="form-container" id="addToiletForm">
+            <div class="section-background">
+                <div class="two-column-section">
+                    <div class="two-column-left-section">
+                        {{ form.hidden_tag() }}
+                        <div>
+                            {{ form.building.label }}<br>
+                            {% for error in form.building.errors %}
+                            <span class="error">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.building() }}
+                        </div>
+                        <div>
+                            {{ form.floor.label }}<br>
+                            {% for error in form.floor.errors %}
+                            <span class="error">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.floor() }}
+                        </div>
+                        <div>
+                            {{ form.room.label }}<br>
+                            {% for error in form.room.errors %}
+                            <span class="error">[{{ error }}]</span>
+                            {% endfor %}
+                            {{ form.room() }}
+                        </div>
                     </div>
-                    <div>
-                        {{ form.floor.label }}<br>
-                        {% for error in form.floor.errors %}
-                        <span class="error">[{{ error }}]</span>
-                        {% endfor %}
-                        {{ form.floor() }}
-                    </div>
-                    <div>
-                        {{ form.room.label }}<br>
-                        {% for error in form.room.errors %}
-                        <span class="error">[{{ error }}]</span>
-                        {% endfor %}
-                        {{ form.room() }}
-                    </div>
-                </div>
-                <div class="two-column-right-section">
-                    {{ form.gender() }}
-                    <div>
-                        {% for error in form.gender.errors %}
-                        <span class="error">[{{ error }}]</span>
-                        {% endfor %}
-                    </div>
-                    <div>
-                        {{ form.pissoir.label }}<br>{{ form.pissoir() }}
-                    </div>
-                    <div>
-                        {{ form.toilet.label }}<br>{{ form.toilet() }}
-                        {% for error in form.toilet.errors %}
-                        <span class="error">[{{ error }}]</span>
-                        {% endfor %}
-                    </div>
+                    <div class="two-column-right-section">
+                        {{ form.gender() }}
+                        <div>
+                            {% for error in form.gender.errors %}
+                            <span class="error">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            {{ form.pissoir.label }}<br>{{ form.pissoir() }}
+                        </div>
+                        <div>
+                            {{ form.toilet.label }}<br>{{ form.toilet() }}
+                            {% for error in form.toilet.errors %}
+                            <span class="error">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
 
+                    </div>
                 </div>
+                <p>{{ form.submit() }}</p>
+                {% if error_message %}
+                <p class="error">{{error_message}}</p>
+                {% endif %}
+                <p><a href="{{ url_for('help') }}#AddToilet">Hilfe?</a></p>
             </div>
-            <p>{{ form.submit() }}</p>
-            {% if error_message %}
-            <p class="error">{{error_message}}</p>
-            {% endif %}
-            <p><a href="{{ url_for('help') }}#AddToilet">Hilfe?</a></p>
         </div>
-    </div>
-</form>
+    </form>
+</main>
 {% endblock %}

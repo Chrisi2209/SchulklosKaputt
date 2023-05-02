@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">Sicher, dass Sie {{klo}} löschen möchten?</h1>
+<header>
+    <h1 class="title">Sicher, dass Sie {{klo}} löschen möchten?</h1>
+</header>
+<main>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
 
-<form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-
-    <p>{{ form.submit() }}</p>
-</form>
+        <p>{{ form.submit() }}</p>
+    </form>
+</main>
 {% endblock %}
