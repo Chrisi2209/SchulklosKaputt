@@ -22,11 +22,6 @@ hr {
     border-width: 3px;
 }
 
-.centerContainer {
-    display: flex;
-    justify-content: center;
-}
-
 /*** dropdownicon ***/
 :root {
     --dropdownicon_height: 80px;
