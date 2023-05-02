@@ -75,7 +75,7 @@ hr {
 
 /******* Navbar *********/
 
-.navbar {
+nav {
     z-index: 1;
     position: absolute;
     top: 5px;
@@ -91,7 +91,7 @@ hr {
 }
 
 
-.navbar a {
+.nav a {
     text-decoration: none;
     margin: 0;
 }
@@ -171,7 +171,7 @@ hr {
 /******** Navigator (e.g. help page) *****/
 
 .navigator {
-    width: 500px;
+    width: fit-content;
     margin: auto;
 }
 
@@ -607,7 +607,7 @@ div.help-paragraph p {
 
 /****** mediaquerry ********/
 @media only screen and (max-width: 700px) {
-    .navbar {
+    nav {
         display: flex;
         top: calc(-1 * var(--dropheight));
         left: 15px;

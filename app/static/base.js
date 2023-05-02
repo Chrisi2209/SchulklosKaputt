@@ -1,4 +1,4 @@
-var navbar = document.getElementsByClassName("navbar")[0];
+var navbar = document.getElementsByTagName("nav")[0];
 var dropdown_container = document.getElementsByClassName("dropdownicon-container")[0];
 
 function mouseLeft() {
