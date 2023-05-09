@@ -7,7 +7,7 @@ import random
 
 # A chance to get rick rolled
 def rick_roll():
-    CHANCE_IN_PERCENT = 5
+    CHANCE_IN_PERCENT = 0
     if random.randint(1, 100) <= CHANCE_IN_PERCENT:
         logger.info("Someone just got rickrolled")
         return True

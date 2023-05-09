@@ -2,16 +2,18 @@
 
 {% block content %}
 <main>
-    <div class="centerY">
-        <header>
-            <h1 class="title">Error 404</h1>
-        </header>
-        <h2 class="subtitle">Diese Seite existiert nicht!</h2>
+    <section>
+        <div class="centerY">
+            <header>
+                <h1 class="title">Error 404</h1>
+            </header>
+            <h2 class="subtitle">Diese Seite existiert nicht!</h2>
 
-        <p class="centered">Bitte kehre mithilfe der Navbar zur Webseite zurück.</p>
+            <p class="centered">Bitte kehre mithilfe der Navigationsleiste zur Webseite zurück.</p>
 
-        <img src="{{url_for('static', filename='error_Image_Thinking.png')}}" alt="Denkender Emoji"
-            id="thinkingImageError">
-    </div>
-    <main>
-        {% endblock %}
+            <img src="{{url_for('static', filename='error_Image_Thinking.png')}}" alt="Denkender Emoji"
+                id="thinkingImageError">
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -26,16 +26,17 @@
         </li>
     </ol>
 </div>
+<hr />
 <main>
-    <div class="help-paragraph" id="WebsiteDescription">
+    <section id="WebsiteDescription">
         <h2>Was macht diese Webseite?</h2>
         <p>
             Diese Webseite zeigt an, wie viele Klos der HTL-Mödling aktuell kaputt sind.<br>
             Die genaue Anzahl der Klos wird durch Admins aktuell gehalten.
         </p>
-    </div>
+    </section>
     {% if authenticated == True %}
-    <div class="help-paragraph" id="AddToilet">
+    <section id="AddToilet">
         <h2>Wie kann ich ein kaputtes Klo hinzufügen?</h2>
         <p>
             Ein Klo kann als kaputt gemeldet werden, indem es bei den <a
@@ -77,9 +78,9 @@
             der
             Zähler um 1 erhöht hat (solange kein anderes Klo zur selben Zeit hinzugefügt oder gelöscht wurde):
         </p>
-    </div>
+    </section>
 
-    <div class="help-paragraph" id="RemoveToilet">
+    <section# id="RemoveToilet">
         <h2>Wie kann ich ein repariertes Klo wieder entfernen?</h2>
         <p>
             Um ein repariertes Klo wieder zu entfernen, gehen Sie zunächst zu diesen <a
@@ -88,28 +89,28 @@
             Daraufhin
             drücken Sie "Löschen". Das Klo wurde dadurch gelöscht.
         </p>
-    </div>
-    {% endif %}
+        </section>
+        {% endif %}
 
-    <div class="help-paragraph" id="DefinitionBrokenToilet">
-        <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
+        <section id="DefinitionBrokenToilet">
+            <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
 
-        <p>
-            Ein Klo gilt dann als kaputt, wenn es aktuell von niemandem verwendbar ist. Das heißt, dass es entweder
-            abgesperrt, überschwemmt, kaputt etc. ist.
-        </p>
-    </div>
+            <p>
+                Ein Klo gilt dann als kaputt, wenn es aktuell von niemandem verwendbar ist. Das heißt, dass es entweder
+                abgesperrt, überschwemmt, kaputt etc. ist.
+            </p>
+        </section>
 
-    <div class="help-paragraph" id="ToiletDisplayScheme">
-        <h2>Wie funktioniert die Darstellung in der Kloansicht?</h2>
+        <section id="ToiletDisplayScheme">
+            <h2>Wie funktioniert die Darstellung in der Kloansicht?</h2>
 
-        <p>
-            Die Darstellung lautet wie folgt. Als Beispiel wird 120209:Sitzklo:02 Die ersten 6 Ziffern sind zur
-            Raumidentifizierung. Nach dem ersten Doppelpunkt folgt dann entweder Sitzklo oder Pissoir, je nachdem um
-            welche
-            Kloart es sich handelt. Die letzten 2 Ziffern bilden die Klonummer.
-        </p>
-    </div>
+            <p>
+                Die Darstellung lautet wie folgt. Als Beispiel wird 120209:Sitzklo:02 Die ersten 6 Ziffern sind zur
+                Raumidentifizierung. Nach dem ersten Doppelpunkt folgt dann entweder Sitzklo oder Pissoir, je nachdem um
+                welche
+                Kloart es sich handelt. Die letzten 2 Ziffern bilden die Klonummer.
+            </p>
+        </section>
 </main>
 
 {% endblock %}

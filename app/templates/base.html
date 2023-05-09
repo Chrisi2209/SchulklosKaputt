@@ -46,6 +46,38 @@
         {% block content %}{% endblock %}
     </div>
 
+    <footer>
+        <table>
+            <caption class="subtitle">Impressum</caption>
+            <thead>
+                <tr>
+                    <th>Autor</th>
+                    <th>Bild</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="grid">
+                            <div>Name:</div>
+                            <div>Rodax Christopher</div>
+                            <div>Adresse:</div>
+                            <div>Auf der Wiese 7, 2824 Schiltern</div>
+                            <div>Mail</div>
+                            <div><a style="word-wrap:normal;"
+                                    href="mailto:christopher.rodax@gmail.com">Christopher.Rodax</a></div>
+                            <div>Tel nr.</div>
+                            <div>+42 677 61343330</div>
+                        </div>
+                    </td>
+                    <td><img id="author-img" src="{{url_for('static', filename='Author.PNG')}}" alt="Bild des Autors">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </footer>
+
     <script src="{{ url_for('static', filename='base.js') }}"></script>
 </body>
 

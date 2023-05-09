@@ -2,39 +2,41 @@
 
 {% block content %}
 <main>
-    <div id="counter">
-        <div class="threeNumberContainer" id="cloneSuccessor">
-            <div class="counter-number" id="cloneSuccessor100"></div>
-            <div class="counter-number" id="cloneSuccessor10"></div>
-            <div class="counter-number" id="cloneSuccessor1"></div>
-        </div>
-        <div id="backgroundgiver">
-            <div class="threeNumberContainer" id="successor">
-                <div class="counter-number" id="successor100"></div>
-                <div class="counter-number" id="successor10"></div>
-                <div class="counter-number" id="successor1"></div>
+    <section>
+        <div id="counter">
+            <div class="threeNumberContainer" id="cloneSuccessor">
+                <div class="counter-number" id="cloneSuccessor100"></div>
+                <div class="counter-number" id="cloneSuccessor10"></div>
+                <div class="counter-number" id="cloneSuccessor1"></div>
             </div>
+            <div id="backgroundgiver">
+                <div class="threeNumberContainer" id="successor">
+                    <div class="counter-number" id="successor100"></div>
+                    <div class="counter-number" id="successor10"></div>
+                    <div class="counter-number" id="successor1"></div>
+                </div>
 
-            <div class="threeNumberContainer" id="number">
-                <div class="counter-number" id="number100">{{number100_val}}</div>
-                <div class="counter-number" id="number10">{{number10_val}}</div>
-                <div class="counter-number" id="number1">{{number1_val}}</div>
+                <div class="threeNumberContainer" id="number">
+                    <div class="counter-number" id="number100">{{number100_val}}</div>
+                    <div class="counter-number" id="number10">{{number10_val}}</div>
+                    <div class="counter-number" id="number1">{{number1_val}}</div>
+                </div>
+
+                <div class="threeNumberContainer" id="predecessor">
+                    <div class="counter-number" id="predecessor100"></div>
+                    <div class="counter-number" id="predecessor10"></div>
+                    <div class="counter-number" id="predecessor1"></div>
+                </div>
             </div>
-
-            <div class="threeNumberContainer" id="predecessor">
-                <div class="counter-number" id="predecessor100"></div>
-                <div class="counter-number" id="predecessor10"></div>
-                <div class="counter-number" id="predecessor1"></div>
+            <div class="threeNumberContainer" id="clonePredecessor">
+                <div class="counter-number" id="clonePredecessor100"></div>
+                <div class="counter-number" id="clonePredecessor10"></div>
+                <div class="counter-number" id="clonePredecessor1"></div>
             </div>
         </div>
-        <div class="threeNumberContainer" id="clonePredecessor">
-            <div class="counter-number" id="clonePredecessor100"></div>
-            <div class="counter-number" id="clonePredecessor10"></div>
-            <div class="counter-number" id="clonePredecessor1"></div>
-        </div>
-    </div>
 
-    <h1 class="title">Live counter für die Anzahl an kaputten Heisl in der HTL Mödling</h1>
+        <h1 class="title">Live counter für die Anzahl an kaputten Heisl in der HTL Mödling</h1>
+    </section>
 </main>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 
