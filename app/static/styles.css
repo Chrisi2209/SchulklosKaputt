@@ -28,6 +28,13 @@ hr {
     margin: 0;
 }
 
+/****** specific styles *******/
+.dashed-border-right {
+    border-right-style: dashed;
+    border-right-width: 5px;
+    border-right-color: var(--background-color3);
+}
+
 /*** dropdownicon ***/
 :root {
     --dropdownicon_height: 80px;
@@ -687,6 +694,11 @@ div.help-paragraph p {
 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+
+    section {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .dropdownicon-container {
