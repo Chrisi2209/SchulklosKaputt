@@ -74,11 +74,11 @@ hr {
 
 .icon-corner {
     position: absolute;
-    top: calc(var(--dropdownicon_height) - 10px);
+    top: calc(var(--dropdownicon_height) - 14px);
     width: 14.14px;
     height: 10px;
-    left: calc(var(--dropdownicon_width) / 2);
-    transform: translateY(-7px) rotateZ(-45deg) translateX(-5px);
+    left: calc(var(--dropdownicon_width) / 2 - 3px);
+    transform: rotateZ(-45deg);
     background-color: darkslategrey;
     opacity: 1;
 }
@@ -301,6 +301,12 @@ footer table tr th {
     text-align: center;
     margin: auto;
     font-size: 20px;
+    transition-property: transform;
+    transition-duration: 0.1s;
+}
+
+.klodisplay:hover {
+    transform: scale(1.1);
 }
 
 a {
@@ -309,10 +315,6 @@ a {
     transition: transform 0.3s;
 }
 
-/* hover not working styly */
-.klodisplay a:hover {
-    transform: scale(1.1);
-}
 
 a[data-descr] {
     position: relative;
@@ -330,8 +332,7 @@ a[data-descr]:focus::after {
     background-color: grey;
     padding: 5px;
     color: white;
-    font-size: 14px;
-    z-index: 1;
+    font-size: 10px;
 }
 
 /******* forms ***************/

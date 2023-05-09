@@ -16,12 +16,13 @@
 </head>
 
 <body>
+    <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
+        <div class="icon-master"></div>
+        <div class="icon-filler"></div>
+        <div class="icon-corner"></div>
+    </div>
     <nav>
-        <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
-            <div class="icon-master"></div>
-            <div class="icon-filler"></div>
-            <div class="icon-corner"></div>
-        </div>
+
 
         <a href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
         <a href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
@@ -64,10 +65,10 @@
                             <div>Rodax Christopher</div>
                             <div>Adresse:</div>
                             <div>Auf der Wiese 7, 2824 Schiltern</div>
-                            <div>Mail</div>
-                            <div><a style="word-wrap:normal;"
-                                    href="mailto:christopher.rodax@gmail.com">Christopher.Rodax</a></div>
-                            <div>Tel nr.</div>
+                            <div>Mail:</div>
+                            <div><a style="overflow-wrap: break-word;"
+                                    href="mailto:christopher.rodax@gmail.com">Christopher.Rodax@gmail.com</a></div>
+                            <div>Tel nr.:</div>
                             <div>+42 677 61343330</div>
                         </div>
                     </td>

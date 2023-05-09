@@ -10,6 +10,8 @@ function dropdownEndEvent() {
     dropdown_container.removeEventListener("animationend", dropdownEndEvent);
     dropdown_container.removeEventListener('mouseleave', dropupEndEvent)
 
+    navbar.addEventListener('mouseleave', toggleNavbar)
+
     navbar.classList.remove("drop-animation");
     dropdown_container.classList.remove("drop-animation");
 }
@@ -24,15 +26,17 @@ function dropupEndEvent() {
 function toggleNavbar() {
     navbar.removeEventListener('mouseleave', toggleNavbar)
     if (!dropdown_container.classList.contains("dropped")) {
+        console.log("go down")
+        // go down
         dropdown_container.classList.add("dropped");
         navbar.classList.add("dropped")
 
         dropdown_container.classList.remove("dropdownicon-hoverdrop");  // no more hover feedback
 
+        // start drop animation
         navbar.classList.add("drop-animation");
         dropdown_container.classList.add("drop-animation");
         dropdown_container.addEventListener('animationend', dropdownEndEvent)
-        navbar.addEventListener('mouseleave', toggleNavbar)
     }
     else if (dropdown_container.classList.contains("dropped")) {
         navbar.classList.remove("dropped");
@@ -52,6 +56,4 @@ var flash_exists = flash_container.childNodes
 
 if (flash_exists.length != 1) {
     body.style.marginTop = "90px";
-    console.log("flash")
-    console.log(flash_exists)
 }
