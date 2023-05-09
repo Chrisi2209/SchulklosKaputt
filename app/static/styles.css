@@ -57,6 +57,33 @@ hr {
     transition: transform 0.1s;
 }
 
+.icon-master {
+    position: absolute;
+    width: var(--dropdownicon_width);
+    height: calc(var(--dropdownicon_height) - 10px);
+    background-color: darkslategrey;
+}
+
+.icon-filler {
+    position: absolute;
+    top: calc(var(--dropdownicon_height) - 10px);
+    width: calc(var(--dropdownicon_width) - 10px);
+    height: 10px;
+    background-color: darkslategrey;
+}
+
+.icon-corner {
+    position: absolute;
+    top: calc(var(--dropdownicon_height) - 10px);
+    width: 14.14px;
+    height: 10px;
+    left: calc(var(--dropdownicon_width) / 2);
+    transform: translateY(-7px) rotateZ(-45deg) translateX(-5px);
+    background-color: darkslategrey;
+    opacity: 1;
+}
+
+/*
 .icon {
     position: absolute;
     top: 0;
@@ -75,6 +102,7 @@ hr {
 
     transform: rotateZ(45deg) scale(1);
 }
+*/
 
 .dropdownicon-container:hover {
     cursor: pointer;
@@ -471,8 +499,7 @@ div.help-paragraph p {
 }
 
 #backgroundgiver {
-    background-image:
-        linear-gradient(var(--background-color), #e4e4e4, var(--background-color));
+    background-image: linear-gradient(var(--background-color), #e4e4e4, var(--background-color));
 }
 
 .threeNumberContainer {
