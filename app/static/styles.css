@@ -24,6 +24,8 @@ hr {
     border-width: 5px;
     width: calc(100% + 10px);
     transform: translateX(-10px);
+
+    margin: 0;
 }
 
 /*** dropdownicon ***/
@@ -670,6 +672,7 @@ div.help-paragraph p {
 @media only screen and (max-width: 700px) {
     nav {
         display: flex;
+        position: fixed;
         top: calc(-1 * var(--dropheight));
         left: 15px;
         gap: 10px;
