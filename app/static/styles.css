@@ -703,7 +703,9 @@ div.help-paragraph p {
 
 
 /****** mediaquerry ********/
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
+
+    /****** NAV *******/
     nav {
         display: flex;
         position: fixed;
@@ -723,10 +725,7 @@ div.help-paragraph p {
         border-bottom-right-radius: 10px;
     }
 
-    section {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
+
 
     .dropdownicon-container {
         display: block;
@@ -740,8 +739,18 @@ div.help-paragraph p {
         display: block;
     }
 
+    /******** other ********/
     .flash {
         top: 10px;
         left: 140px;
+    }
+
+    section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    #logo {
+        display: none;
     }
 }

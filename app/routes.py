@@ -139,7 +139,7 @@ def klo_anmelden():
         # no pissoir in female toilets
         if gender == True and form.pissoir.data == True:
             return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, 
-                                   authenticated=current_user.is_authenticated, error_message="Mädchen Klos verfügen über keine Pissoire")
+                                   authenticated=current_user.is_authenticated, error_message="Mädchenklos verfügen über keine Pissoire")
 
         # add toilet
         added_toilet = Toilet(building=form.building.data, floor=form.floor.data, 

@@ -16,13 +16,13 @@
 </head>
 
 <body>
-    <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
-        <div class="icon-master"></div>
-        <div class="icon-filler"></div>
-        <div class="icon-corner"></div>
-    </div>
-
     <nav>
+        <div class="dropdownicon-container dropdownicon-hoverdrop" onclick="toggleNavbar()" tabindex="0">
+            <div class="icon-master"></div>
+            <div class="icon-filler"></div>
+            <div class="icon-corner"></div>
+        </div>
+
         <a href="{{ url_for('index') }}"><button class="navitem">Home</button></a>
         <a href="{{ url_for('kloansicht') }}"><button class="navitem">Klodaten</button></a>
         <a href="{{ url_for('help') }}"><button class="navitem">Hilfe</button></a>
