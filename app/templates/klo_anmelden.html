@@ -9,7 +9,7 @@
     <form action="" method="post" novalidate>
         <section class="form-container" id="addToiletForm">
             <div class="two-column-section">
-                <div class="two-column-left-section">
+                <div class="">
                     {{ form.hidden_tag() }}
                     <div>
                         {{ form.building.label }}<br>
@@ -33,11 +33,11 @@
                         {{ form.room() }}
                     </div>
                 </div>
-                <div class="two-column-right-section">
+                <div class="">
                     {{ form.gender() }}
                     <div>
                         {% for error in form.gender.errors %}
-                        <span class="error">[{{ error }}]</span>
+                        <span class=" error">[{{ error }}]</span>
                         {% endfor %}
                     </div>
                     <div>
