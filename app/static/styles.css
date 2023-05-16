@@ -310,7 +310,7 @@ footer table tr th {
     transition-duration: 0.1s;
 }
 
-.klodisplay:hover {
+.klodisplay:has(a[data-descr]):hover {
     transform: scale(1.1);
 }
 
