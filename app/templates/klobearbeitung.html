@@ -2,13 +2,15 @@
 
 {% block content %}
 <header>
-    <h1 class="title">Sicher, dass Sie {{klo}} löschen möchten?</h1>
+    <h1 class="subtitle">Sicher, dass {{klo}} repariert wurde?</h1>
 </header>
 <main>
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
+        <div class="form-container">
+            {{ form.hidden_tag() }}
 
-        <p>{{ form.submit() }}</p>
+            <p>{{ form.submit() }}</p>
+        </div>
     </form>
 </main>
 {% endblock %}
