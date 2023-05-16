@@ -35,6 +35,24 @@
             Die genaue Anzahl der Klos wird durch Admins aktuell gehalten.
         </p>
     </section>
+    <section id="DefinitionBrokenToilet">
+        <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
+
+        <p>
+            Ein Klo gilt dann als kaputt, wenn es aktuell von niemandem verwendbar ist. Das heißt, dass es entweder
+            abgesperrt, überschwemmt, kaputt etc. ist.
+        </p>
+    </section>
+
+    <section id="ToiletDisplayScheme">
+        <h2>Wie funktioniert die Darstellung in der Kloansicht?</h2>
+
+        <p>
+            Die Darstellung lautet wie folgt. Als Beispiel wird 120209:Sitzklo:02 Die ersten 6 Ziffern sind zur
+            Raumidentifizierung. Nach dem ersten Doppelpunkt folgt dann entweder Sitzklo oder Pissoir, je nachdem um
+            welche Kloart es sich handelt. Die letzten 2 Ziffern bilden die Klonummer.
+        </p>
+    </section>
     {% if authenticated == True %}
     <section id="AddToilet">
         <h2>Wie kann ich ein kaputtes Klo hinzufügen?</h2>
@@ -54,27 +72,8 @@
             müssen Sie nun in die dazugehörigen Felder eintragen.
         </p>
         <p>
-            Die letzten 2 Auswahlmöglichkeiten vollenden die Kloangabe. Bei der Pissoir-Checkbox wird angegeben ob das
-            zu
-            meldende Klo ein Pissoir ist. Wenn ja, bitte ankreuzen, sonst nicht. Die Klonummer gibt an welches Klo es
-            ist. Dabei
-            werden Pissoirs und Klos mit 1 beginnend von Eingangsrichtung nach hinten hin nummeriert. Wenn die Klos von
-            Seite zu
-            Seiteangebracht sind, werden sie von links nach rechts nummeriert.
-        </p>
-        <p>
-            Setzen wir unser Beispiel fort: Das Klo, das Sie melden wollen befindet sich ganz hinten im Raum und es gibt
-            4
-            Klos.
-            Dazu kommt, dass das Klo kein Pissoir ist. Beim Ausfüllen also kein Hakerl bei der Pissoir-Checkbox setzen
-            und
-            die Klonummer 4 ausfüllen. Da die Klos vom Eingang nach hinten nummeriert sind und es 4 Klos nach hinten
-            gereiht
-            gibt ist das kaputte Klo das 4.
-        </p>
-        <p>
             Nun sind Sie mit dem Eintragen fertig. Wenn Sie nun den Knopf mit der Aufschrift "Klo hinzufügen" betätigen,
-            wird Ihr Antrag automatisch hinzugefügt. Wenn Sie genau schauen, sollten Sie auch bemerkt haben, dass sich
+            wird Ihr Antrag automatisch hinzugefügt. Wenn Sie genau aufpassen, sollten Sie auch bemerkt haben, dass sich
             der
             Zähler um 1 erhöht hat (solange kein anderes Klo zur selben Zeit hinzugefügt oder gelöscht wurde):
         </p>
@@ -86,31 +85,10 @@
             Um ein repariertes Klo wieder zu entfernen, gehen Sie zunächst zu diesen <a
                 href="{{ url_for('kloansicht') }}">Link</a>.
             Dort sehen Sie alle kaputten Klos aufgelistet. Um nun ein Klo zu entfernen, müssen Sie auf das Klo klicken.
-            Daraufhin
-            drücken Sie "Löschen". Das Klo wurde dadurch gelöscht.
+            Daraufhin drücken Sie "Löschen". Das Klo wurde dadurch gelöscht.
         </p>
     </section>
     {% endif %}
-
-    <section id="DefinitionBrokenToilet">
-        <h2>Wann ist ein Klo ein kaputtes Klo?</h2>
-
-        <p>
-            Ein Klo gilt dann als kaputt, wenn es aktuell von niemandem verwendbar ist. Das heißt, dass es entweder
-            abgesperrt, überschwemmt, kaputt etc. ist.
-        </p>
-    </section>
-
-    <section id="ToiletDisplayScheme">
-        <h2>Wie funktioniert die Darstellung in der Kloansicht?</h2>
-
-        <p>
-            Die Darstellung lautet wie folgt. Als Beispiel wird 120209:Sitzklo:02 Die ersten 6 Ziffern sind zur
-            Raumidentifizierung. Nach dem ersten Doppelpunkt folgt dann entweder Sitzklo oder Pissoir, je nachdem um
-            welche
-            Kloart es sich handelt. Die letzten 2 Ziffern bilden die Klonummer.
-        </p>
-    </section>
 </main>
 
 {% endblock %}
