@@ -13,9 +13,9 @@ class Toilet(db.Model):
     toilet = db.Column(db.Integer, index=True)
 
     def __repr__(self):
-        name = f"<Toilet {self.building:02d}{self.floor:02d}{self.room:02d}:Pissoir:{self.toilet:02d}>" \
+        name = f"{self.building:02d}{self.floor:02d}{self.room:02d}:Pissoir:{self.toilet:02d}" \
                if self.pissoir else \
-               f"<Toilet {self.building:02d}{self.floor:02d}{self.room:02d}:Sitzklo:{self.toilet:02d}>"
+               f"{self.building:02d}{self.floor:02d}{self.room:02d}:Sitzklo:{self.toilet:02d}"
         return name
     
     __str__ = __repr__
