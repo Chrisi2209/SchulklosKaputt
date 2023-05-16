@@ -1,3 +1,4 @@
+from __future__ import annotations
 from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -16,8 +17,13 @@ class Toilet(db.Model):
                if self.pissoir else \
                f"{self.building:02d}{self.floor:02d}{self.room:02d}:Sitzklo:{self.toilet:02d}"
         return name
-
+    
     __str__ = __repr__
+    
+    def __eq__(self, other: Toilet):
+        return self.building == other.building and self.floor == other.floor and self.room == other.room and \
+               self.gender == other.gender and self.pissoir == other.pissoir and self.toilet == other.toilet
+
 
 
 class User(UserMixin, db.Model):

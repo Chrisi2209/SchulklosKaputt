@@ -141,9 +141,16 @@ def klo_anmelden():
             return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, 
                                    authenticated=current_user.is_authenticated, error_message="Mädchenklos verfügen über keine Pissoire")
 
-        # add toilet
         added_toilet = Toilet(building=form.building.data, floor=form.floor.data, 
                             room=form.room.data, gender=gender, pissoir=form.pissoir.data, toilet=form.toilet.data)
+        
+        # no double toilets in db
+        for db_toilet in Toilet.query.all():
+            if db_toilet == added_toilet:
+                return render_template("klo_anmelden.html", title="HTL-Mödling Kloansicht", form=form, 
+                                   authenticated=current_user.is_authenticated, error_message="Dieses Klo wurde bereits hinzugefügt!")
+            
+        # add toilet
         db.session.add(added_toilet)
         db.session.commit()
         
