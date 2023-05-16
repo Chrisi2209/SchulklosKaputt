@@ -27,7 +27,7 @@ def index():
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
     logger.info("GET " + url_for("index"))
-    return render_template("index.html", title="HTL-Mödling kaputte klos", authenticated=current_user.is_authenticated, anzahl=len(Toilet.query.all()), 
+    return render_template("index.html", authenticated=current_user.is_authenticated, anzahl=len(Toilet.query.all()), 
                            number100_val=len(Toilet.query.all()) // 100,
                            number10_val=len(Toilet.query.all()) % 100 // 10,
                            number1_val=len(Toilet.query.all()) % 100 % 10)
@@ -52,14 +52,14 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         # if no user with that username or the password is incorrect, login failed
         if user is None or not user.compare_password(form.password.data):
-            return render_template('login.html', title='Sign In', form=form, errorMessage='Ungültiger Benutzername oder Passwort', authenticated=current_user.is_authenticated,)
+            return render_template('login.html', title='Einloggen', form=form, errorMessage='Ungültiger Benutzername oder Passwort', authenticated=current_user.is_authenticated,)
         # if login succeeded, login the user and return to index
         login_user(user, remember=form.remember_me.data)
         flash("login erfolgreich")
 
         return redirect(url_for('index'))
 
-    return render_template('login.html', title='Sign In', form=form, authenticated=current_user.is_authenticated,)
+    return render_template('login.html', title='Einloggen', form=form, authenticated=current_user.is_authenticated,)
 
 
 @app.route("/help")
@@ -68,7 +68,7 @@ def help():
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
         
     logger.info("GET " + url_for("help"))
-    return render_template("help.html", title="HTL-Mödling kaputte Klos", authenticated=current_user.is_authenticated,)
+    return render_template("help.html", authenticated=current_user.is_authenticated,)
 
 
 ### API
