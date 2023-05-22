@@ -1,5 +1,2 @@
-/venv
-/migrations
 **/__pycache__/
 /logs
-/app/app.db
