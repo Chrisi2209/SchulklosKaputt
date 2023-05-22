@@ -17,6 +17,9 @@ python -m venv venv
 ```
 
 Then, activate it by executing the activate.bat file located at venv/scripts/activate.
+```
+venv/scripts/activate
+```
 To install the dependencies, run:
 
 ```
