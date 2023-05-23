@@ -1,12 +1,17 @@
 # SCHULKLOS KAPUTT
 
+## Authors
+- Christopher Rodax
+
 ## PURPOSE
 The purpose of this webserver is to display a live counter of the number of broken toilets in the HTL Mödling. 
 
 The live count is determined by a community of admins. The admin accounts need to directly be injected into the database.
 
 # START SERVER
-Note that you will need to have python 3 installed on your system to start the server directly on your machine. Otherwise, you can fall back to deploying it on docker but you will still need to have docker desktop installed for this method. If you don't have python, nore Docker Desktop installed, please install one of the two to deploy the server it.
+Note that you will need to have python 3 installed on your system to start the server directly on your machine. Otherwise, you can fall back to deploying it on docker but you will still need to have docker desktop installed for this method. If you don't have python, nore Docker Desktop installed, please install one of the two to deploy the server it. 
+
+If you have a package already containing the database (migrations directory and app/app.db exist) and the virtual environment, you don't have to recreate the environment and database, just activate the venv and run the flask app. There will also already be 2 Admin accounts setup for you, Admin1 with the password 1234 and Admin2 with the password 123.
 
 ## START LOCALLY
 To start the server, create a virtual environment by running following command in the command line.
